@@ -34,7 +34,7 @@ function openMenu() {
     document.getElementById('side-menu').classList.toggle('side-menu-active');
     document.getElementById('content').style.marginLeft = "320px";
     console.log(document.getElementById('menu-pic'))
-    document.getElementById('menu-pic').innerHTML = `<img class="lines" src="back.png" onclick="closeMenu()"/>`;
+    document.getElementById('menu-pic').innerHTML = `<img class="lines" src="img/back.png" onclick="closeMenu()"/>`;
     document.getElementById('menu-pic').style.marginLeft = "320px";
 }
 
@@ -42,7 +42,7 @@ function closeMenu() {
 
     document.getElementById('side-menu').classList.toggle('side-menu-active');
     document.getElementById('content').style.marginLeft = "0";
-    document.getElementById('menu-pic').innerHTML = `<img class="lines" src="lines.png" onclick="openMenu()"/>`;
+    document.getElementById('menu-pic').innerHTML = `<img class="lines" src="img/lines.png" onclick="openMenu()"/>`;
     document.getElementById('menu-pic').style.marginLeft = "0";
 
 }
