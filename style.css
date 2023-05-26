@@ -1,0 +1,1154 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Open Sans;
+    overflow-x: hidden;
+}
+
+body::-webkit-scrollbar {
+    width: 5px;
+}
+
+body::-webkit-scrollbar-track {
+    background-color: rgba(241, 240, 251, 1);
+    border-radius: 8px;
+}
+
+body::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    background: rgba(197, 196, 240, 1);
+}
+
+
+/* Входная форма стили */
+.enter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+#main {
+    height: 100vh;
+    width: 100vw;
+    z-index: 10;
+}
+
+.main-opacity {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(25, 27, 46, 0.5); /* Здесь 0.5 определяет прозрачность */
+    z-index: 50; /* Устанавливаем достаточно высокий z-index, чтобы элемент был выше остальных */
+}
+
+.form {
+    width: 416px;
+    height: 469px;
+    padding: 40px 48px 40px 48px;
+    background-color: rgba(255, 255, 255, 1);
+    box-sizing: border-box;
+    border: 1px solid rgba(232, 232, 234, 1);
+    border-radius: 8px;
+    box-shadow: 0 1px 6px 0 rgba(11, 130, 155, 0.16);
+}
+
+.form-title {
+    text-align: center;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 29px;
+    color: rgba(25, 27, 46, 1);
+    margin-bottom: 12px;
+}
+
+.form-description {
+    width: 210px;
+    height: 40px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    text-align: center;
+    color: rgba(163, 164, 171, 1);
+    margin-bottom: 32px;
+    margin-left: 55px;
+}
+
+.input-name {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    margin-bottom: 8px;
+}
+
+.form-input {
+    width: 320px;
+    height: 48px;
+    box-sizing: border-box;
+    padding: 12px 16px 12px 16px;
+    border-radius: 8px;
+    border: 1px solid rgba(232, 232, 234, 1);
+    background-color: rgba(251, 251, 254, 1);
+}
+
+#e-mail {
+    margin-bottom: 20px;
+}
+
+#password {
+    margin-bottom: 56px;
+}
+
+.password {
+	position: relative;
+}
+
+#password-control {
+    cursor: pointer;
+	position: absolute;
+	top: 14px;
+	right: 6px;
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+}
+
+.form-btn {
+    width: 320px;
+    height: 48px;
+    box-sizing: border-box;
+    padding: 13px 20px 13px 20px;
+    border-radius: 8px;
+    border: 1px solid rgba(89, 86, 174, 1);
+    color: rgba(255, 255, 255, 1);
+    background-color: rgba(111, 108, 217, 1);
+    text-align: center;
+    cursor: pointer;
+}
+
+
+
+/* ССS свойства, когда зашли, главна страница */
+#content {
+    transition: 0.4s;
+    box-sizing: border-box;
+    padding: 40px 48px 40px 128px;
+}
+
+.scroll::-webkit-scrollbar {
+    width: 5px;
+    height: 8px;
+}
+
+.scroll::-webkit-scrollbar-track {
+    background-color: rgba(241, 240, 251, 1);
+    border-radius: 8px;
+}
+
+.scroll::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    background: rgba(197, 196, 240, 1);
+}
+
+.chart-text {
+
+}
+
+.chart {
+
+}
+
+.all-chart {
+    height: 352px;
+    width: 642px;
+    box-sizing: border-box;
+    border-radius: 8px;
+    padding: 0px 24px 0px 24px;
+    margin: 40px 48px 40px 48px;
+    box-shadow: 0 1px 6px 0 rgba(11, 130, 155, 0.16);
+}
+
+.information-chart {
+    height: 372px;
+    display: flex;
+    align-items: center;
+}
+
+.chart-title-purchase-sales {
+    height: 76px;
+    width: 388px;
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 38px;
+    color: rgba(25, 27, 46, 1);
+}
+
+.chart-title {
+    height: 38px;
+    width: 388px;
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 38px;
+    color: rgba(25, 27, 46, 1);
+}
+
+.checkIn-title {
+    height: 76px;
+    width: 388px;
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 38px;
+    color: rgba(25, 27, 46, 1);
+}
+
+.chart-description {
+    height: 44px;
+    width: 388px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22px;
+    color: rgba(163, 164, 171, 1);
+    margin: 20px 0 20px 0;
+}
+
+.chart-colors {
+    display: flex;
+}
+
+.color-chart-sales {
+    width: 12px;
+    height: 12px;
+    margin-right: 8px;
+    box-sizing: border-box;
+    border-radius: 4px;
+    background-color: rgba(192, 131, 70, 1);
+    border: 1px solid rgba(240, 164, 88, 0.4);
+}
+
+.color-chart-purchase {
+    width: 12px;
+    height: 12px;
+    margin-right: 8px;
+    box-sizing: border-box;
+    border-radius: 4px;
+    background-color: rgba(11, 130, 155, 1);
+    border: 1px solid rgba(11, 130, 155, 0.4);
+}
+
+.color-chart-name {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    color: rgba(163, 164, 171, 1);
+    margin-right: 20px;
+}
+
+.chart-settings-btn {
+    height: 40px;
+    width: 148px;
+    text-align: center;
+    box-sizing: border-box;
+    border-radius: 8px;
+    padding: 9px 20px 9px 20px;
+    background: rgba(248, 248, 253, 0.5);
+    border: 1px solid rgba(232, 232, 234, 0.5);
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 22px;
+    color: rgba(25, 27, 46, 1);
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.chart-price-analytic-settings-btn {
+    height: 40px;
+    width: 151px;
+    text-align: center;
+    box-sizing: border-box;
+    border-radius: 8px;
+    padding: 9px 20px 9px 20px;
+    background: linear-gradient(0deg, #F1F0FB, #F1F0FB),
+    linear-gradient(0deg, #8C89E1, #8C89E1);
+    border: 1px solid rgba(140, 137, 225, 1);
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 22px;
+    color: rgba(89, 86, 174, 1);
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.worked-today {
+    text-align: center;
+    height: 352px;
+    width: 642px;
+    box-sizing: border-box;
+    border-radius: 8px;
+    padding: 41px 161px 41px 161px;
+    background: linear-gradient(0deg, #FFFFFF, #FFFFFF),
+                linear-gradient(0deg, #E8E8EA, #E8E8EA);
+    border: 1px solid rgba(232, 232, 234, 1);
+    box-shadow: 0 1px 6px 0 rgba(11, 130, 155, 0.16);
+}
+
+.working-hours {
+    height: 58px;
+    width: 320px;
+    font-size: 48px;
+    font-weight: 600;
+    line-height: 58px;
+    text-align: center;
+    color: rgba(163, 164, 171, 1);
+    margin-bottom: 24px;
+}
+
+.working-hours-title {
+    height: 29px;
+    width: 320px;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 29px;
+    text-align: center;
+    color: rgba(25, 27, 46, 1);
+    margin-bottom: 12px;
+}
+
+.working-hours-description {
+    height: 40px;
+    width: 320px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    text-align: center;
+    color: rgba(163, 164, 171, 1);
+    margin-bottom: 24px;
+}
+
+.working-hours-btn {
+    height: 40px;
+    width: 320px;
+    box-sizing: border-box;
+    border-radius: 8px;
+    padding: 9px 20px 9px 20px;
+    background: linear-gradient(0deg, #6F6CD9, #6F6CD9),
+    linear-gradient(0deg, #5956AE, #5956AE);
+    border: 1px solid rgba(89, 86, 174, 1);
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 22px;
+    color: rgba(255, 255, 255, 1);
+    cursor: pointer;
+}
+
+
+/* Верхнее меню */
+#head {
+    height: 112px;
+    display: flex;
+    align-items: center;
+    transition: 1s;
+}
+
+.lines {
+    cursor: pointer;
+    width: 25px;
+    height: 25px;
+    margin-left: 53px;
+}
+
+.title {
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 38px;
+    margin-left: 52px;
+}
+
+.btn-purchase {
+    cursor: pointer;
+    position: absolute;
+    width: 154px;
+    height: 48px;
+    text-align: center;
+    box-sizing: border-box;
+    padding: 13px 20px 13px 20px;
+    color: rgba(89, 86, 174, 1);
+    background-color: rgba(241, 240, 251, 0.5);
+    border: 1px solid rgba(89, 86, 174, 1);
+    border-radius: 8px;
+    right: 334px;
+}
+
+.btn-sell {
+    position: absolute;
+    cursor: pointer;
+    width: 154px;
+    height: 48px;
+    text-align: center;
+    box-sizing: border-box;
+    padding: 13px 20px 13px 20px;
+    color: rgba(89, 86, 174, 1);
+    background-color: rgba(241, 240, 251, 0.5);
+    border: 1px solid rgba(89, 86, 174, 1);
+    border-radius: 8px;
+    right: 168px;
+}
+
+.btn-msg {
+    cursor: pointer;
+    position: absolute;
+    text-align: center;
+    width: 48px;
+    height: 48px;
+    text-align: center;
+    box-sizing: border-box;
+    padding: 13px 0 13px 0;
+    color: rgba(89, 86, 174, 1);
+    background-color: rgba(241, 240, 251, 0.5);
+    border: 1px solid rgba(89, 86, 174, 1);
+    border-radius: 8px;
+    right: 108px;
+}
+
+.btn-ava {
+    position: absolute;
+    width: 48px;
+    height: 48px;
+    right: 48px;
+    border-radius: 50%;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+
+/* Все стили для работы по созданию с создание purchase и sell */
+.hidden-purchase {
+    display: none;
+}
+
+.hidden-sell {
+    display: none;
+}
+
+.sell-add-btn {
+    height: 48px;
+    width: 320px;
+    border-radius: 8px;
+    box-sizing: border-box;
+    text-align: center;
+    padding: 13px 20px 13px 20px;
+    background: linear-gradient(0deg, #F8F8FD, #F8F8FD),
+    linear-gradient(0deg, #E8E8EA, #E8E8EA);
+    border: 1px solid rgba(232, 232, 234, 1);
+    margin-bottom: 56px;
+    cursor: pointer;
+}
+
+.sell-title {
+    height: 29px;
+    width: 108px;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 29px;
+    margin-left: 140px;
+    color:rgba(25, 27, 46, 1);
+}
+
+.sell-active {
+    overflow: auto;
+    overflow-x: hidden;
+    display: block;
+    position: absolute;
+    z-index: 100;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+    height: 517px;
+    width: 416px;
+    box-sizing: border-box;
+    border-radius: 8px;
+    padding: 40px 48px 40px 48px;
+    background-color: rgba(255, 255, 255, 1);
+}
+
+.purchase-active {
+    overflow: auto;
+    overflow-x: hidden;
+    display: block;
+    position: absolute;
+    z-index: 100;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+    height: 600px;
+    width: 416px;
+    box-sizing: border-box;
+    border-radius: 8px;
+    padding: 40px 48px 40px 48px;
+    background-color: rgba(255, 255, 255, 1);
+}
+
+.purchase-active::-webkit-scrollbar {
+    width: 5px;
+}
+
+.purchase-active::-webkit-scrollbar-track {
+    background-color: rgba(241, 240, 251, 1);
+    border-radius: 8px;
+}
+
+.purchase-active::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    background: rgba(197, 196, 240, 1);
+}
+
+.purchase-files-active {
+    display: block;
+    position: absolute;
+    z-index: 100;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+    height: 509px;
+    width: 416px;
+    box-sizing: border-box;
+    border-radius: 8px;
+    padding: 40px 48px 40px 48px;
+    background-color: rgba(255, 255, 255, 1);
+}
+
+.purchase-files-load-input {
+    height: 160px;
+    width: 320px;
+    box-sizing: border-box;
+    border-radius: 4px;
+    padding: 32px 48px 32px 48px;
+    background: linear-gradient(0deg, #F8F8FD, #F8F8FD),
+    linear-gradient(0deg, #A9A7E8, #A9A7E8);
+    border: 2px dashed rgba(169, 167, 232, 1);
+    margin-bottom: 32px;
+    text-align: center;
+}
+
+.purchase-files-load-input input[type="file"] {
+    display: none;
+}
+
+.purchase-files-load-input label {
+    height: 22px;
+    width: 195px;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 22px;
+    color: rgba(117, 118, 130, 1);
+}
+
+.purchase-files-load-input span {
+    color: rgba(111, 108, 217, 1);
+    cursor: pointer;
+}
+
+/* #fileList {
+    height: 73px;
+    overflow: auto;
+    overflow-x: hidden;
+}
+
+#fileList::-webkit-scrollbar {
+    width: 5px;
+}
+
+#fileList::-webkit-scrollbar-track {
+    background-color: rgba(241, 240, 251, 1);
+    border-radius: 8px;
+}
+
+#fileList::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    background: rgba(197, 196, 240, 1);
+} */
+
+.file {
+    height: 72px;
+    width: 320px;
+    box-sizing: border-box;
+    border-radius: 8px;
+    padding: 12px;
+    background: linear-gradient(0deg, #F8F8FD, #F8F8FD),
+    linear-gradient(0deg, #E8E8EA, #E8E8EA);
+    border: 1px solid rgba(232, 232, 234, 1);
+    margin-bottom: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.file-pic {
+    height: 48px;
+    width: 48px;
+    margin-right: 12px;
+}
+
+.file-name {
+    height: 22px;
+    width: 204px;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 22px;
+    color: rgba(25, 27, 46, 1);
+}
+
+.file-delete-btn {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.purchase-files-load-input span:hover {
+    text-decoration: underline;
+}
+
+.input-purchase-description {
+    height: 40px;
+    width: 320px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    text-align: center;
+    color: rgba(163, 164, 171, 1);
+    margin-bottom: 56px;
+}
+
+.purchase-title {
+    height: 29px;
+    width: 108px;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 29px;
+    margin-left: 106px;
+    color:rgba(25, 27, 46, 1);
+}
+
+.purchase-description {
+    height: 20px;
+    width: 320px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    text-align: center;
+    margin-bottom: 32px;
+    color: rgba(163, 164, 171, 1);
+}
+
+
+.input-purchase-name {
+    height: 20px;
+    width: 320px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    color:rgba(25, 27, 46, 1);
+    margin-bottom: 8px;
+}
+
+.sell-reminder {
+    height: 22px;
+    width: 320px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22px;
+    color:rgba(25, 27, 46, 1);
+    margin-bottom: 34px;
+}
+
+.total-price {
+    height: 22px;
+    width: 320px;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 22px;
+    color: rgba(117, 118, 130, 1);
+    text-align: center;
+    margin-bottom: 56px;
+}
+
+.purchase-input {
+    height: 48px;
+    width: 320px;
+    box-sizing: border-box;
+    border-radius: 8px;
+    padding: 12px 16px 12px 16px;
+    background: linear-gradient(0deg, #FBFBFE, #FBFBFE),
+    linear-gradient(0deg, #E8E8EA, #E8E8EA);
+    border: 1px solid rgba(232, 232, 234, 1);
+    margin-bottom: 20px;
+}
+
+.purchase-create-btn {
+    height: 48px;
+    width: 320px;
+    box-sizing: border-box;
+    border-radius: 8px;
+    padding: 13px 20px 13px 20px;
+    background: linear-gradient(0deg, #F1F0FB, #F1F0FB),
+    linear-gradient(0deg, #A9A7E8, #A9A7E8);
+    border: 1px solid rgba(169, 167, 232, 1);
+    text-align: center;
+    margin-bottom: 12px;
+    cursor: pointer;
+}
+
+.purchase-cancel-btn {
+    height: 48px;
+    width: 154px;
+    box-sizing: border-box;
+    border-radius: 8px;
+    padding: 13px 20px 13px 20px;
+    background: linear-gradient(0deg, #F8F8FD, #F8F8FD),
+    linear-gradient(0deg, #E8E8EA, #E8E8EA);
+    border: 1px solid rgba(232, 232, 234, 1);
+    color:rgba(25, 27, 46, 1);
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 22px;
+    display: inline-block;
+    text-align: center;
+    cursor: pointer;
+    margin-right: 3px;
+}
+
+.purchase-continue-btn {
+    height: 48px;
+    width: 154px;
+    box-sizing: border-box;
+    border-radius: 8px;
+    padding: 13px 20px 13px 20px;
+    background: linear-gradient(0deg, #6F6CD9, #6F6CD9),
+    linear-gradient(0deg, #5956AE, #5956AE);
+    border: 1px solid rgba(89, 86, 174, 1);
+    color: rgba(255, 255, 255, 1);
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 22px;
+    display: inline-block;
+    text-align: center;
+    cursor: pointer;
+}
+
+.hidden-created-purchase-banner {
+    display: none;
+}
+
+.active-created-purchase-banner {
+    display: block;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 16px 60px 16px 128px;
+    background: linear-gradient(0deg, #1CBB90, #1CBB90),
+    linear-gradient(0deg, #158C6C, #158C6C);
+    border: 1px solid rgba(21, 140, 108, 1);
+}
+
+.successfully-created-purchase-pic {
+    width: 20px;
+    height: 20px;
+    margin-left: 160px;
+    margin-right: 14px;
+}
+
+#successfully-created-purchase-title {
+    vertical-align: middle;
+    height: 22px;
+    width: 382px;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 22px;
+    color: rgba(255, 255, 255, 1);
+}
+
+.successfully-created-purchase-close-pic {
+    position: absolute;
+    right: 65px;
+    width: 14px;
+    height: 14px;
+    cursor: pointer;
+}
+
+
+/* Стили для кнопок при нажатии на профиль */
+.profile-more-close {
+    display: none;
+}
+
+.profile-more-active {
+    display: block;
+    width: 200px;
+    height: 156px;
+    position: absolute;
+    top: 88px;
+    right: 48px;
+    border-radius: 8px;
+    border: 1px solid rgba(89, 86, 174, 1);
+}
+
+.profile-item {
+    width: 200px;
+    height: 52px;
+    padding: 14px 16px 14px 16px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid rgba(232, 232, 234, 1);
+    cursor: pointer;
+}
+
+.profile-item-pic {
+    width: 20px;
+    height: 20px;
+    margin-right: 17px;
+}
+
+.profile-item-title {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+    color:rgba(25, 27, 46, 1);
+}
+
+.profile-item-title-logout {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+    color:rgba(255, 90, 90, 1);
+}
+
+.sure-logout-close {
+    display: none;
+}
+
+.sure-logout {
+    display: block;
+    position: absolute;
+    z-index: 100;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+    width: 416px;
+    height: 218px;
+    box-sizing: border-box;
+    padding: 40px 48px 40px 48px;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 1);
+}
+
+.title-sure-logout {
+    width: 320px;
+    height: 58px;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 29px;
+    text-align: center;
+    color:rgba(25, 27, 46, 1);
+    margin-bottom: 32px;
+}
+
+.cancel-logout-btn {
+    display: inline-block;
+    width: 154px;
+    height: 48px;
+    background-color: rgba(248, 248, 253, 1);
+    border: 1px solid rgba(232, 232, 234, 1);
+    color:rgba(25, 27, 46, 1);
+    box-sizing: border-box;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 22px;
+    padding: 13px 20px 13px 20px;
+    cursor: pointer;
+}
+
+.yes-logout-btn {
+    display: inline-block;
+    width: 154px;
+    height: 48px;
+    background-color: rgba(255, 90, 90, 1);
+    border: 1px solid rgba(204, 72, 72, 1);
+    color: rgba(255, 255, 255, 1);
+    box-sizing: border-box;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 22px;
+    padding: 13px 20px 13px 20px;
+    cursor: pointer;
+}
+
+
+/* Стили для показа уведомлений */
+.hidden-notifications {
+    display: none;
+}
+
+.shown-notifications {
+    z-index: 100;
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 560px;
+    height: 100vh;
+    padding: 50px 67px 50px 48px;
+    box-sizing: border-box;
+    overflow: auto;
+    overflow-x: hidden;
+    background-color: rgba(255, 255, 255, 1);
+}
+
+.notifications-title {
+    display: inline-block;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 29px;
+    text-align: left;
+    margin-bottom: 66px;
+}
+
+.close-notifications {
+    display: inline-block;
+    height: 48px;
+    width: 48px;
+    box-sizing: border-box;
+    border-radius: 8px;
+    padding: 12px;
+    background-color: rgba(248, 248, 253, 1);
+    border: 1px solid rgba(232, 232, 234, 1);
+    text-align: center;
+    cursor: pointer;
+    margin-left: 239px;
+}
+
+#notifications-card-container {
+    border-top: 1px solid rgba(232, 232, 234, 1);
+}
+
+.shown-notifications::-webkit-scrollbar {
+    width: 5px;
+}
+
+.shown-notifications::-webkit-scrollbar-track {
+    background-color: rgba(241, 240, 251, 1);
+    border-radius: 8px;
+}
+
+.shown-notifications::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    background: rgba(197, 196, 240, 1);
+}
+
+.notifications-card {
+    height: 242px;
+    width: 445px;
+    box-sizing: border-box;
+    border-radius: 8px;
+    padding: 24px 20px 24px 20px;
+    margin: 24px 0 24px 0;
+    background-color: rgba(248, 248, 253, 1);
+}
+
+.notifications-card-title {
+    display: inline-block;
+    width: 373px;
+    height: 24px;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 24px;
+    text-align: left;
+    color: rgba(25, 27, 46, 1);
+    margin-bottom: 12px;
+}
+
+.delete-notification {
+    display: inline-block;
+    cursor: pointer;
+}
+
+.notifications-card-description {
+    width: 405px;
+    height: 66px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: rgba(117, 118, 130, 1);
+    margin-bottom: 12px;
+}
+
+.notifications-card-date {
+    width: 405px;
+    height: 20px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    text-align: left;
+    color: rgba(117, 118, 130, 1);
+    margin-bottom: 20px;
+}
+
+.notifications-card-btn {
+    height: 40px;
+    width: 149px;
+    font-size: 16px;
+    font-weight: 600;
+    box-sizing: border-box;
+    padding: 9px 20px 9px 20px;
+    background-color: rgba(241, 240, 251, 1);
+    color: rgba(140, 137, 225, 1);
+    border: 1px solid rgba(140, 137, 225, 1);
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.noNotifications-pic {
+    margin: 115px 0px 0px 141px;
+    width: 182px;
+    height: 194px;
+}
+
+.noNotifications-title {
+    height: 24px;
+    width: 337px;
+    margin: 24px 0 12px 63px;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 24px;
+    text-align: center;
+    color: rgba(25, 27, 46, 1);
+}
+
+.noNotifications-description {
+    height: 44px;
+    width: 320px;
+    margin-left: 72px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22px;
+    text-align: center;
+    color: rgba(117, 118, 130, 1);
+}
+
+
+/* Стили для бокового основного меню */
+#side-menu {
+    position: absolute;
+    width: 320px;
+    height: 100vh;
+    top:0;
+    bottom: 0;
+    left: -320px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border: 1px solid rgba(232, 232, 234, 0.5);    ;
+    transition: all 0.4s;
+    padding: 32px 0 32px 0;
+    box-sizing: border-box;
+    overflow: auto;
+    overflow-x: hidden;
+}
+
+#side-menu::-webkit-scrollbar {
+    width: 5px;
+}
+
+#side-menu::-webkit-scrollbar-track {
+    background-color: rgba(241, 240, 251, 1);
+    border-radius: 8px;
+}
+
+    #side-menu::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    background: rgba(197, 196, 240, 1);
+}
+
+
+.side-menu-active {
+    left: 0px !important;
+}
+
+.menu-item {
+    width: 280px;
+    height: 32px;
+    color: rgba(117, 118, 130, 1);
+    padding: 8px 16px 8px 24px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.menu-item-pic {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+}
+
+.menu-item-name {
+    display: inline-block;
+    width: 204px;
+    height: 22px;
+    margin-left: 14px;
+    font-size: 16px;
+    line-height: 22px;
+    font-weight: 400;
+}
+
+.menu-item-more {
+    width: 16px;
+    height: 7px;
+    display: inline-block;
+}
+
+.rotated {
+    transform: rotate(180deg);
+}
+
+.menu-hidden-items {
+    display: none;
+}
+
+.menu-item-active {
+    width: 320px;
+    display: block !important;
+    background-color: rgba(241, 240, 251, 1);
+}
+
+.menu-item-open {
+    height: 32px;
+    color: rgba(117, 118, 130, 1);
+    padding: 8px 16px 8px 60px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.menu-item-open:hover {
+    transition: 0.3s;
+    background-color: rgba(233, 233, 249, 1);
+}

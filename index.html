@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+
+    <!-- Входная форма -->
+    <div id="main">
+        <div class="enter">
+            <div class="form">
+                <div class="form-title">
+                    Sign In
+                </div>
+                <div class="form-description">
+                    Enter your credentials in order to get access to the platform
+                </div>
+                <div class="input-name">E-mail</div>
+                <input class="form-input" id="e-mail" placeholder="Enter your e-mail"/><br>
+                <div class="input-name">Password</div>
+                <div class="password">
+                    <input class="form-input" id="password" placeholder="Enter your password" type="password"/>
+                    <img id="password-control" src="img/yes-pass.png" onclick="showPassword()">
+                </div>
+                <div class="form-btn" onclick="enter()">
+                    Sign In
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Шаблон входной формы -->
+    <template id="tmpl_enter">
+        <div class="enter">
+            <div class="form">
+                <div class="form-title">
+                    Sign In
+                </div>
+                <div class="form-description">
+                    Enter your credentials in order to get access to the platform
+                </div>
+                <div class="input-name">E-mail</div>
+                <input class="form-input" id="e-mail" placeholder="Enter your e-mail"/><br>
+                <div class="input-name">Password</div>
+                <div class="password">
+                    <input class="form-input" id="password" placeholder="Enter your password" type="password"/>
+                    <img id="password-control" src="img/yes-pass.png" onclick="showPassword()">
+                </div>
+                <div class="form-btn" onclick="enter()">
+                    Sign In
+                </div>
+            </div>
+        </div>
+    </div>
+    </template>
+
+    <!-- Шаблон выпадющего банера после создания purchase -->
+    <div id="created-purchase-banner" class="hidden-created-purchase-banner">
+        <img class="successfully-created-purchase-pic" src=""/>
+        <div id="successfully-created-purchase-title">
+            Purchase PI#${PI} successfully created!
+        </div>
+        <img class="successfully-created-purchase-close-pic" src="img/back.png" onclick="successfullyCreatedPurchaseClose()"/>
+    </div>
+
+    <!-- Шаблон выпадющего банера после создания sell -->
+    <div id="created-sell-banner" class="hidden-created-purchase-banner">
+        <img class="successfully-created-purchase-pic" src=""/>
+        <div id="successfully-created-purchase-title">
+            Sale Order Number ${SellNumber} successfully created!
+        </div>
+        <img class="successfully-created-purchase-close-pic" src="img/back.png" onclick="successfullyCreatedSellClose()"/>
+    </div>
+
+
+    <!-- Шаблон главной страницы -->
+    <template id="tmpl_entered">
+        <div id="head">
+            <div id="menu-pic">
+                <img class="lines" src="img/lines.png" onclick="openMenu()"/>
+            </div>
+            <div id="${title}" class="title">
+                Dashboard
+            </div>
+            <div class="btn-purchase" onclick="showPurchase()">
+                Purchase
+            </div>
+            <div class="btn-sell" onclick="showSell()">
+                Sell
+            </div>
+            <div class="btn-msg" onclick="showNotifications()">
+                <img src="img/msg.png"/>
+            </div>
+            <img class="btn-ava" src="img/Avatar.png" onclick="showProfile()"/>
+            <div class="profile-more-close" id="profile-more">
+                <div class="profile-item">
+                    <img class="profile-item-pic" src=""/>
+                    <div class="profile-item-title">My profile</div>
+                </div>
+
+                <div class="profile-item">
+                    <img class="profile-item-pic" src=""/>
+                    <div class="profile-item-title">Settings</div>
+                </div>
+
+                <div class="profile-item" onclick="logOut()">
+                    <img class="profile-item-pic" src=""/>
+                    <div class="profile-item-title-logout">Log out</div>
+                </div>
+            </div>
+        </div>
+            <div id="side-menu">
+                <img class="logo" src=""/>
+
+                <div class="menu-item">
+                    <img class="menu-item-pic" src="img/dashboard.png"/>
+                    <div class="menu-item-name">Dashboard</div>
+                </div>
+
+                <div id="load" class="menu-item" onclick="">
+                    <img class="menu-item-pic" src="img/loads.png"/>
+                    <div class="menu-item-name">Loads</div>
+                    <img class="menu-item-more" src="img/more.png" onclick="showMore('loads')"/>
+                </div>
+
+                <div id="loads" class="menu-hidden-items">
+                    <div class="menu-item-open">Not Loaded</div>
+                    <div class="menu-item-open">On the Way</div>
+                    <div class="menu-item-open">Warehouse</div>
+                    <div class="menu-item-open">Delivered</div>
+                </div>
+
+                <div id = "deal" class="menu-item">
+                    <img class="menu-item-pic" src=""/>
+                    <div class="menu-item-name">Deals</div>
+                    <img class="menu-item-more" src="img/more.png" onclick="showMore('deals')"/>
+                </div>
+
+                <div id="deals" class="menu-hidden-items">
+                    <div class="menu-item-open">Purchases</div>
+                    <div class="menu-item-open">Sales</div>
+                </div>
+
+                <div class="menu-item">
+                    <img class="menu-item-pic" src=""/>
+                    <div class="menu-item-name">Products</div>
+                </div>
+
+                <div id ="warehous" class="menu-item">
+                    <img class="menu-item-pic" src=""/>
+                    <div class="menu-item-name">Warehouse</div>
+                    <img class="menu-item-more" src="img/more.png" onclick="showMore('warehouse')"/>
+                </div>
+
+                <div id="warehouse" class="menu-hidden-items">
+                    <div class="menu-item-open">Income</div>
+                    <div class="menu-item-open">Outcome</div>
+                </div>
+
+                <div class="menu-item">
+                    <img class="menu-item-pic" src=""/>
+                    <div class="menu-item-name">Wagon Locations</div>
+                </div>
+
+                <div id="staf" class="menu-item">
+                    <img class="menu-item-pic" src=""/>
+                    <div class="menu-item-name">Staff</div>
+                    <img class="menu-item-more" src="img/more.png" onclick="showMore('staff')"/>
+                </div>
+
+                <div id="staff" class="menu-hidden-items">
+                    <div class="menu-item-open">Staff Management</div>
+                    <div class="menu-item-open">Sales Performance</div>
+                </div>
+
+                <div id="customer" class="menu-item">
+                    <img class="menu-item-pic" src=""/>
+                    <div class="menu-item-name">Customers</div>
+                    <img class="menu-item-more" src="img/more.png" onclick="showMore('customers')"/>
+                </div>
+
+                <div id="customers" class="menu-hidden-items">
+                    <div class="menu-item-open">Marketing Research</div>
+                    <div class="menu-item-open">Potential Customers</div>
+                    <div class="menu-item-open">Active Customers</div>
+                    <div class="menu-item-open">Customer Performance</div>
+                </div>
+
+                <div id="manufacturer" class="menu-item">
+                    <img class="menu-item-pic" src=""/>
+                    <div class="menu-item-name">Manufacturers</div>
+                    <img class="menu-item-more" src="img/more.png" onclick="showMore('manufacturers')"/>
+                </div>
+
+                <div id="manufacturers" class="menu-hidden-items">
+                    <div class="menu-item-open">Manufacturers</div>
+                    <div class="menu-item-open">Countries and Cities</div>
+                </div>
+
+                <div class="menu-item">
+                    <img class="menu-item-pic" src=""/>
+                    <div class="menu-item-name">Price Analytics</div>
+                    <img class="menu-item-more" src="img/more.png" onclick="showMore()"/>
+                </div>
+
+                <div class="menu-item">
+                    <img class="menu-item-pic" src=""/>
+                    <div class="menu-item-name">Accounting and Balance</div>
+                    <img class="menu-item-more" src="img/more.png" onclick="showMore()"/>
+                </div>
+            </div>
+            <div id="content">
+                <div class="information-chart">
+                    <div class="chart-text">
+                        <div class="chart-title-purchase-sales">
+                            Purchases and sales over last year
+                        </div>
+                        <div class="chart-description">
+                            Month by month comparing purchases and sales Adjust the settings to get better analytics
+                        </div>
+                        <div class="chart-colors">
+                            <div class="color-chart-sales">
+
+                            </div>
+                            <div class="color-chart-name">
+                                Sale
+                            </div>
+                            <div class="color-chart-purchase">
+
+                            </div>
+                            <div class="color-chart-name">
+                                Purchase
+                            </div>
+                        </div>
+                        <div class="chart-settings-btn">
+                            Chart settings
+                        </div>
+                    </div>
+                    <div class="chart">
+
+                    </div>
+                </div>
+
+                <div class="information-chart">
+                    <div class="chart-text">
+                        <div class="chart-title">
+                            Sales dynamic
+                        </div>
+                        <div class="chart-description">
+                            Month by month sales line chart dynamic Adjust the settings to get better analytics
+                        </div>
+                        <div class="chart-settings-btn">
+                            Chart settings
+                        </div>
+                    </div>
+                    <div class="chart">
+
+                    </div>
+                </div>
+                <div class="information-chart">
+                    <div class="chart-text">
+                        <div class="chart-title">
+                            Purchases dynamic
+                        </div>
+                        <div class="chart-description">
+                            Month by month purchases line chart dynamic Adjust the settings to get better analytics
+                        </div>
+                        <div class="chart-settings-btn">
+                            Chart settings
+                        </div>
+                    </div>
+                    <div class="chart">
+
+                    </div>
+                </div>
+                <div class="information-chart">
+                    <div class="chart-text">
+                        <div class="chart-title">
+                            Price analytics
+                        </div>
+                        <div class="chart-description">
+                            Month by month comparing purchases and sales Adjust the settings to get better analytics
+                        </div>
+                        <div class="chart-price-analytic-settings-btn">
+                            Pick a product
+                        </div>
+                    </div>
+                    <div class="chart">
+
+                    </div>
+                </div>
+
+                <div class="information-chart">
+                    <div class="chart-text">
+                        <div class="checkIn-title">
+                            Sales percentage and Check in
+                        </div>
+                        <div class="chart-description">
+                            The most popular products sold analytics
+                        </div>
+                        <div class="chart-price-analytic-settings-btn">
+                            Settings
+                        </div>
+                    </div>
+                    <div class="all-chart">
+
+                    </div>
+                    <div class="worked-today">
+                        <div class="working-hours">
+                            00:00:00
+                        </div>
+                        <div class="working-hours-title">
+                            Worked today
+                        </div>
+                        <div class="working-hours-description">
+                            You haven’t worked today yet Check In to start tracking your working time
+                        </div>
+                        <div class="working-hours-btn">
+                            Check In
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </template>
+
+
+
+    <!-- Окно подтверждения о выходе из платформы -->
+    <div class="sure-logout-close" id="logout">
+        <div class="title-sure-logout">
+            Are you sure you want to log out?
+        </div>
+        <div class="cancel-logout-btn" onclick="cancelLogout()">
+            Cancel
+        </div>
+        <div class="yes-logout-btn" onclick="away()">
+            Yes, log out
+        </div>
+    </div>
+
+    <!-- Шаблон меню с уведомлениями, когда их нет -->
+    <template id="tmpl_noNotifications">
+        <img class="noNotifications-pic" src=""/>
+        <div class="noNotifications-title">
+            New notifications will appear here!
+        </div>
+        <div class="noNotifications-description">
+            You will get Payment Date and Customer call reminders here
+        </div>
+    </template>
+
+
+    <!-- Шаблон меню с уведомлениями, когда они есть -->
+    <div class="hidden-notifications" id="notifications">
+        <div class="notifications-title">
+            Change Status
+        </div>
+        <div class="close-notifications" onclick="closeNotifications()">
+            &#10006;
+        </div>
+        <div id="notifications-card-container">
+            <div id="notifications-card1" class="notifications-card">
+                <div class="notifications-card-title">
+                    Payment datereminder
+                </div>
+                <div class="delete-notification" onclick="deleteNotification('notifications-card1')">
+                    &#10006;
+                </div>
+                <div class="notifications-card-description">
+                    Payment datereminder
+                </div>
+                <div class="notifications-card-date">
+                    24.05.2023
+                </div>
+                <div class="notifications-card-btn">
+                    Go to the deal
+                </div>
+            </div>
+            <div id="notifications-card2" class="notifications-card">
+                <div class="notifications-card-title">
+                    Payment datereminder
+                </div>
+                <div class="delete-notification" onclick="deleteNotification('notifications-card2')">
+                    &#10006;
+                </div>
+                <div class="notifications-card-description">
+                    Payment datereminder
+                </div>
+                <div class="notifications-card-date">
+                    24.05.2023
+                </div>
+                <div class="notifications-card-btn">
+                    Go to the deal
+                </div>
+            </div>
+            <div id="notifications-card3" class="notifications-card">
+                <div class="notifications-card-title">
+                    Payment datereminder
+                </div>
+                <div class="delete-notification" onclick="deleteNotification('notifications-card3')">
+                    &#10006;
+                </div>
+                <div class="notifications-card-description">
+                    Payment datereminder
+                </div>
+                <div class="notifications-card-date">
+                    24.05.2023
+                </div>
+                <div class="notifications-card-btn">
+                    Go to the deal
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Вся логика реализации создания purchase -->
+    <div class="hidden-purchase" id="purchase-window-1">
+        <div class="purchase-title">
+            Purchase
+        </div>
+        <div class="purchase-description">
+            Step 1/3: Adding main purchase information
+        </div>
+        <div class="input-purchase-container">
+            <div class="input-purchase-name">
+                PI#
+            </div>
+            <input id="PI#" class="purchase-input" placeholder="Enter PI#"/>
+            <div class="input-purchase-name">
+                Product
+            </div>
+            <input class="purchase-input" placeholder="Enter and pick a product"/>
+            <div class="input-purchase-name">
+                Manufacturer
+            </div>
+            <input class="purchase-input" placeholder="Enter and pick a manufacturer"/>
+            <div class="input-purchase-name">
+                Quantity (Tons)
+            </div>
+            <input class="purchase-input" placeholder="Enter quantity in tons"/>
+            <div class="input-purchase-name">
+                Price per Ton
+            </div>
+            <input class="purchase-input" placeholder="Enter price per Ton"/>
+        </div>
+        <div class="purchase-create-btn" onclick="deletePurchaseInputValue()">
+            Skip and create
+        </div>
+        <div class="purchase-cancel-btn" onclick="cancelPuchase()">
+            Cancel
+        </div>
+        <div class="purchase-continue-btn" onclick="purchaseContinueStep1()">
+            Continue
+        </div>
+    </div>
+
+    <div class="hidden-purchase" id="purchase-window-2">
+        <div class="purchase-title">
+            Purchase
+        </div>
+        <div class="purchase-description">
+            Step 2/3: Adding additional costs
+        </div>
+        <div class="input-purchase-container">
+            <div class="input-purchase-name">
+                Money Transfer
+            </div>
+            <input class="purchase-input" placeholder="Enter expense value"/>
+            <div class="input-purchase-name">
+                Transportation
+            </div>
+            <input class="purchase-input" placeholder="Enter expense value"/>
+            <div class="input-purchase-name">
+                Custom
+            </div>
+            <input class="purchase-input" placeholder="Enter expense value"/>
+            <div class="input-purchase-name">
+                Comission
+            </div>
+            <input class="purchase-input" placeholder="Enter expense value"/>
+            <div class="input-purchase-name">
+                Bukhara expenses
+            </div>
+            <input class="purchase-input" placeholder="Enter expense value"/>
+        </div>
+        <div class="purchase-create-btn" onclick="deletePurchaseInputValue()">
+            Skip and create
+        </div>
+        <div class="purchase-cancel-btn" onclick="backPuchaseStep2()">
+            Back
+        </div>
+        <div class="purchase-continue-btn" onclick="purchaseContinueStep2()">
+            Continue
+        </div>
+    </div>
+
+    <div class="hidden-purchase" id="purchase-window-3">
+        <div class="purchase-title">
+            Purchase
+        </div>
+        <div class="purchase-description">
+            Step 3/3: Attach documents
+        </div>
+        <div id="fileListPurchase">
+
+        </div>
+        <div class="purchase-files-load-input">
+            <input type="file" id="fileInput" onchange="handleFilesPurchase(this.files)">
+            <label id="file-load-title" for="fileInput">Drug files here or <span>browse</span></label>
+        </div>
+        <div class="input-purchase-description">
+            Supported formats: doc, xls, pdf, zip, jpg, png. Memory limit: 10 MB
+        </div>
+        <div class="purchase-cancel-btn" onclick="backPuchaseStep3()">
+            Back
+        </div>
+        <div class="purchase-continue-btn" onclick="createPurchase()">
+            Create
+        </div>
+    </div>
+
+
+
+
+    <!-- Вся логика реализации создания sell -->
+    <div class="hidden-sell" id="sell-window-1">
+        <div class="sell-title">
+            Sell
+        </div>
+        <div class="purchase-description">
+            Step 1/3: Adding main sale information
+        </div>
+        <div class="input-purchase-container">
+            <div class="input-purchase-name">
+                Order Number
+            </div>
+            <input id="Number-Sell" class="purchase-input" placeholder="Enter Order Number"/>
+            <div class="input-purchase-name">
+                Customer
+            </div>
+            <input class="purchase-input" placeholder="Pick a customer"/>
+            <div class="input-purchase-name">
+                Product
+            </div>
+            <input class="purchase-input" placeholder="Enter and pick a product"/>
+            <div class="input-purchase-name">
+                Quantity (Tons)
+            </div>
+            <input class="purchase-input" placeholder="Enter quantity in tons"/>
+            <div class="input-purchase-name">
+                Price per Ton
+            </div>
+            <input class="purchase-input" placeholder="Enter price per Ton"/>
+            <div class="input-purchase-name">
+                Payment type
+            </div>
+            <input class="purchase-input" placeholder="Pick a payment type"/>
+            <div class="input-purchase-name">
+                Payment conditions
+            </div>
+            <input class="purchase-input" placeholder="Pick a payment conditions"/>
+            <div class="input-purchase-name">
+                Delivery conditions
+            </div>
+            <input class="purchase-input" placeholder="Pick a delivery condition"/>
+            <div class="input-purchase-name">
+                Payment date
+            </div>
+            <input type="date" class="purchase-input" placeholder="Pick a payment date"/>
+            <div class="sell-reminder">
+                <input type="checkbox" checked ><label class="inpit-check-sell">Set a payment date reminder</label>
+            </div>
+            <div class="total-price">
+                Total Price: --
+            </div>
+        </div>
+        <div class="purchase-create-btn" onclick="deleteSellInputValue()">
+            Skip and create
+        </div>
+        <div class="purchase-cancel-btn" onclick="cancelSell()">
+            Cancel
+        </div>
+        <div class="purchase-continue-btn" onclick="sellContinueStep1()">
+            Continue
+        </div>
+    </div>
+
+    <div class="hidden-sell" id="sell-window-2">
+        <div class="sell-title">
+            Sell
+        </div>
+        <div class="purchase-description">
+            Step 2/3: Select the loads to sell
+        </div>
+        <div class="input-purchase-container">
+            <div class="input-purchase-name">
+                Pick first PI
+            </div>
+            <input class="purchase-input" placeholder="Enter and pick a load"/>
+            <div class="input-purchase-name">
+                First PI Tons
+            </div>
+            <input class="purchase-input" placeholder="Enter and pick a load"/>
+        </div>
+        <div class="sell-add-btn" onclick="addSellLoads()">
+            Add more loads
+        </div>
+        <div class="purchase-cancel-btn" onclick="backSellStep2()">
+            Back
+        </div>
+        <div class="purchase-continue-btn" onclick="sellContinueStep2()">
+            Continue
+        </div>
+    </div>
+
+    <div class="hidden-sell" id="sell-window-3">
+        <div class="sell-title">
+            Sell
+        </div>
+        <div class="purchase-description">
+            Step 3/3: Attach documents
+        </div>
+        <div id="fileListSell">
+
+        </div>
+        <div class="purchase-files-load-input">
+            <input type="file" id="fileInputSell" onchange="handleFilesSell(files)">
+            <label id="file-load-title-Sell" for="fileInputSell">Drug files here or <span>browse</span></label>
+        </div>
+        <div class="input-purchase-description">
+            Supported formats: doc, xls, pdf, zip, jpg, png. Memory limit: 10 MB
+        </div>
+        <div class="purchase-cancel-btn" onclick="backSellStep3()">
+            Back
+        </div>
+        <div class="purchase-continue-btn" onclick="createSell()">
+            Create
+        </div>
+</body>
+</html>
+
+<script src="main.js"></script>
