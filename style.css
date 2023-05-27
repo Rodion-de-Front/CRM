@@ -155,13 +155,13 @@ body::-webkit-scrollbar-thumb {
     background: rgba(197, 196, 240, 1);
 }
 
-.chart-text {
+/* .chart-text {
 
 }
 
 .chart {
 
-}
+} */
 
 .all-chart {
     height: 352px;
