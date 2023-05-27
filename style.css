@@ -2,11 +2,11 @@ body {
     margin: 0;
     padding: 0;
     font-family: Open Sans;
-    overflow-x: hidden;
 }
 
 body::-webkit-scrollbar {
     width: 5px;
+    height: 5px;
 }
 
 body::-webkit-scrollbar-track {
@@ -136,6 +136,8 @@ body::-webkit-scrollbar-thumb {
     transition: 0.4s;
     box-sizing: border-box;
     padding: 40px 48px 40px 128px;
+    width: max-content;
+    overflow: auto;
 }
 
 .scroll::-webkit-scrollbar {
@@ -1151,4 +1153,202 @@ body::-webkit-scrollbar-thumb {
 .menu-item-open:hover {
     transition: 0.3s;
     background-color: rgba(233, 233, 249, 1);
+}
+
+.head-of-load {
+    height: 182px;
+    display: flex;
+    box-sizing: border-box;
+    padding: 48px 0 48px 0;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 1);
+}
+
+.head-of-load-number {
+    display: inline-block;
+}
+
+.head-of-load-description {
+    height: 20px;
+    width: 149px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    color: rgba(163, 164, 171, 1);
+    margin-bottom: 12px;
+}
+
+#head-of-load-title {
+    height: 58px;
+    width: 173px;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 29px;
+    color: rgba(25, 27, 46, 1);
+    margin-right: 50px;
+}
+
+.head-of-load-number {
+    height: 64px;
+    box-sizing: border-box;
+    padding: 10px;
+    border-left: 1px solid rgba(232, 232, 234, 0.5);
+}
+
+.head-of-load-number-description {
+    height: 20px;
+    width: 135px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    color: rgba(163, 164, 171, 1);
+}
+
+.head-of-load-number-number {
+    height: 38px;
+    width: 182px;
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 38px;
+    color: rgba(25, 27, 46, 1);
+}
+
+.number1 {
+    width: 119px;
+    margin-right: 144px;
+}
+
+.number2 {
+    width: 140px;
+    margin-right: 128px;
+}
+
+.number3 {
+    width: 182px;
+    margin-right: 128px;
+}
+
+.not-load-btns-search {
+    display: flex;
+}
+
+.not-load-search {
+    height: 48px;
+    width: 320px;
+    box-sizing: border-box;
+    border-radius: 8px;
+    padding: 12px;
+    background-color: rgba(251, 251, 254, 1);
+    border: 1px solid rgba(232, 232, 234, 1);
+    margin-right: 72px;
+}
+
+.not-load-btn {
+    height: 48px;
+    width: 154px;
+    box-sizing: border-box;
+    border-radius: 8px;
+    padding: 12px 20px 12px 20px;
+    background-color: rgba(248, 248, 253, 1);
+    border: 1px solid rgba(232, 232, 234, 1);
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 22px;
+    color: rgba(25, 27, 46, 1);
+    margin-right: 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.not-load-btn-select {
+    display: none;
+    height: 48px;
+    width: 154px;
+    box-sizing: border-box;
+    border-radius: 8px;
+    padding: 12px 20px 12px 20px;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 22px;
+    margin-right: 12px;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+}
+
+.not-load-btn-select-cansel {
+    background-color: rgba(248, 248, 253, 1);
+    border: 1px solid rgba(232, 232, 234, 1);
+    color: rgba(25, 27, 46, 1);
+}
+
+.not-load-btn-select-delete {
+    background-color: rgba(255, 189, 189, 1);
+    border: 1px solid rgba(255, 156, 156, 1);
+    color: rgba(255, 255, 255, 1);
+}
+
+.not-load-btn-select-export {
+    background-color: rgba(197, 196, 240, 1);
+    border: 1px solid rgba(169, 167, 232, 1);
+    color: rgba(255, 255, 255, 1);
+}
+
+.not-load-btn-pic {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+.not-load-table {
+    margin-top: 32px;
+}
+
+.not-load-row-names {
+    margin-bottom: 32px;
+}
+
+.not-load-row-name {
+    display: inline-block;
+    height: 22px;
+    width: 200px;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 22px;
+    color: rgba(163, 164, 171, 1);
+    margin-right: 48px;
+}
+
+.not-load-row-date {
+    box-sizing: border-box;
+    padding: 10px 0 10px 0;
+    border-bottom: 2px solid rgba(232, 232, 234, 0.5);
+}
+
+.load-select-input-check {
+    display: none;
+}
+
+.not-load-row-first-data {
+    display: inline-block;
+    height: 22px;
+    width: 200px;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 22px;
+    color: rgba(111, 108, 217, 1);
+    margin-right: 48px;
+}
+
+.not-load-row-data {
+    display: inline-block;
+    height: 22px;
+    width: 200px;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 22px;
+    color: rgba(71, 73, 88, 1);
+    margin-right: 48px;
 }

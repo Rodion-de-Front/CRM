@@ -1,8 +1,12 @@
 //Шаблоны для экранов
+let content = document.getElementById('content');
 let main = document.getElementById('main');
 let tmpl_entered = document.getElementById('tmpl_entered');
 let tmpl_enter = document.getElementById('tmpl_enter');
 let tmpl_noNotifications = document.getElementById('tmpl_noNotifications');
+let tmpl_notLoad = document.getElementById('tmpl_notLoad');
+let tmpl_dashboard = document.getElementById('tmpl_dashboard');
+let paper_name = document.getElementById('menu-name');
 
 //Вспомогательные переменные
 let PI = '';
@@ -33,7 +37,6 @@ function openMenu() {
 
     document.getElementById('side-menu').classList.toggle('side-menu-active');
     document.getElementById('content').style.marginLeft = "320px";
-    console.log(document.getElementById('menu-pic'))
     document.getElementById('menu-pic').innerHTML = `<img class="lines" src="img/back.png" onclick="closeMenu()"/>`;
     document.getElementById('menu-pic').style.marginLeft = "320px";
 }
@@ -268,5 +271,73 @@ function deleteNotification(notification_card_id) {
     if (deleted_notification_cards == 3) {
         document.getElementById('notifications-card-container').innerHTML += tmpl_noNotifications.innerHTML;
         deleted_notification_cards = 0;
+    }
+}
+
+//Функции по работе с разделом Dashboard
+function renderDashboardPaper(chapter) {
+    document.getElementById('content').innerHTML = tmpl_dashboard.innerHTML;
+    document.getElementById('menu-name').innerHTML = chapter;
+}
+
+
+//Функции по работе с разделом Load
+
+function renderNotLoadedPaper(chapter) {
+    document.getElementById('content').innerHTML = tmpl_notLoad.innerHTML;
+    document.getElementById('menu-name').innerHTML = chapter;
+    document.getElementById('head-of-load-title').innerHTML = 'Not loaded loads overview';
+}
+
+function renderOnTheWayPaper(chapter) {
+    document.getElementById('content').innerHTML = tmpl_notLoad.innerHTML;
+    document.getElementById('menu-name').innerHTML = chapter;
+    document.getElementById('head-of-load-title').innerHTML = 'On the way loads overview';
+}
+
+function renderWarehousePaper(chapter) {
+    document.getElementById('content').innerHTML = tmpl_notLoad.innerHTML;
+    document.getElementById('menu-name').innerHTML = chapter;
+    document.getElementById('head-of-load-title').innerHTML = 'Warehouse loads overview';
+}
+
+function renderDeliveredPaper(chapter) {
+    document.getElementById('content').innerHTML = tmpl_notLoad.innerHTML;
+    document.getElementById('menu-name').innerHTML = chapter;
+    document.getElementById('head-of-load-title').innerHTML = 'Delivered loads overview';
+}
+
+function selectRowInLoad() {
+    let loadBtns = document.querySelectorAll('.not-load-btn');
+    for (let i = 0; i < loadBtns.length; i++) {
+        loadBtns[i].style.display = 'none';
+    }
+
+    let loadBtnsAfterSelect = document.querySelectorAll('.not-load-btn-select');
+    for (let i = 0; i < loadBtnsAfterSelect.length; i++) {
+        loadBtnsAfterSelect[i].style.display = 'flex';
+    }
+
+    let loadCheckBox = document.querySelectorAll('.load-select-input-check');
+    for (let i = 0; i < loadCheckBox.length; i++) {
+        loadCheckBox[i].style.display = 'inline-block';
+    }
+
+}
+
+function cancelSelectRowInLoad() {
+    let loadBtns = document.querySelectorAll('.not-load-btn');
+    for (let i = 0; i < loadBtns.length; i++) {
+        loadBtns[i].style.display = 'flex';
+    }
+
+    let loadBtnsAfterSelect = document.querySelectorAll('.not-load-btn-select');
+    for (let i = 0; i < loadBtnsAfterSelect.length; i++) {
+        loadBtnsAfterSelect[i].style.display = 'none';
+    }
+
+    let loadCheckBox = document.querySelectorAll('.load-select-input-check');
+    for (let i = 0; i < loadCheckBox.length; i++) {
+        loadCheckBox[i].style.display = 'none';
     }
 }

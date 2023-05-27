@@ -84,7 +84,7 @@
             <div id="menu-pic">
                 <img class="lines" src="img/lines.png" onclick="openMenu()"/>
             </div>
-            <div id="${title}" class="title">
+            <div id="menu-name" class="title">
                 Dashboard
             </div>
             <div class="btn-purchase" onclick="showPurchase()">
@@ -119,7 +119,7 @@
 
                 <div class="menu-item">
                     <img class="menu-item-pic" src="img/dashboard.png"/>
-                    <div class="menu-item-name">Dashboard</div>
+                    <div class="menu-item-name" onclick="renderDashboardPaper('Dashboard')">Dashboard</div>
                 </div>
 
                 <div id="load" class="menu-item" onclick="">
@@ -129,10 +129,10 @@
                 </div>
 
                 <div id="loads" class="menu-hidden-items">
-                    <div class="menu-item-open">Not Loaded</div>
-                    <div class="menu-item-open">On the Way</div>
-                    <div class="menu-item-open">Warehouse</div>
-                    <div class="menu-item-open">Delivered</div>
+                    <div class="menu-item-open" onclick="renderNotLoadedPaper('Loads Management - Not Loaded')">Not Loaded</div>
+                    <div class="menu-item-open" onclick="renderOnTheWayPaper('Loads Management - On the Way')">On the Way</div>
+                    <div class="menu-item-open" onclick="renderWarehousePaper('Loads Management - Warehouse')">Warehouse</div>
+                    <div class="menu-item-open" onclick="renderDeliveredPaper('Loads Management - Delivered')">Delivered</div>
                 </div>
 
                 <div id = "deal" class="menu-item">
@@ -328,7 +328,118 @@
             </div>
     </template>
 
+    <template id="tmpl_dashboard">
+        <div class="information-chart">
+            <div class="chart-text">
+                <div class="chart-title-purchase-sales">
+                    Purchases and sales over last year
+                </div>
+                <div class="chart-description">
+                    Month by month comparing purchases and sales Adjust the settings to get better analytics
+                </div>
+                <div class="chart-colors">
+                    <div class="color-chart-sales">
 
+                    </div>
+                    <div class="color-chart-name">
+                        Sale
+                    </div>
+                    <div class="color-chart-purchase">
+
+                    </div>
+                    <div class="color-chart-name">
+                        Purchase
+                    </div>
+                </div>
+                <div class="chart-settings-btn">
+                    Chart settings
+                </div>
+            </div>
+            <div class="chart">
+
+            </div>
+        </div>
+
+        <div class="information-chart">
+            <div class="chart-text">
+                <div class="chart-title">
+                    Sales dynamic
+                </div>
+                <div class="chart-description">
+                    Month by month sales line chart dynamic Adjust the settings to get better analytics
+                </div>
+                <div class="chart-settings-btn">
+                    Chart settings
+                </div>
+            </div>
+            <div class="chart">
+
+            </div>
+        </div>
+        <div class="information-chart">
+            <div class="chart-text">
+                <div class="chart-title">
+                    Purchases dynamic
+                </div>
+                <div class="chart-description">
+                    Month by month purchases line chart dynamic Adjust the settings to get better analytics
+                </div>
+                <div class="chart-settings-btn">
+                    Chart settings
+                </div>
+            </div>
+            <div class="chart">
+
+            </div>
+        </div>
+        <div class="information-chart">
+            <div class="chart-text">
+                <div class="chart-title">
+                    Price analytics
+                </div>
+                <div class="chart-description">
+                    Month by month comparing purchases and sales Adjust the settings to get better analytics
+                </div>
+                <div class="chart-price-analytic-settings-btn">
+                    Pick a product
+                </div>
+            </div>
+            <div class="chart">
+
+            </div>
+        </div>
+
+        <div class="information-chart">
+            <div class="chart-text">
+                <div class="checkIn-title">
+                    Sales percentage and Check in
+                </div>
+                <div class="chart-description">
+                    The most popular products sold analytics
+                </div>
+                <div class="chart-price-analytic-settings-btn">
+                    Settings
+                </div>
+            </div>
+            <div class="all-chart">
+
+            </div>
+            <div class="worked-today">
+                <div class="working-hours">
+                    00:00:00
+                </div>
+                <div class="working-hours-title">
+                    Worked today
+                </div>
+                <div class="working-hours-description">
+                    You haven’t worked today yet Check In to start tracking your working time
+                </div>
+                <div class="working-hours-btn">
+                    Check In
+                </div>
+            </div>
+        </div>
+    </template>
 
     <!-- Окно подтверждения о выходе из платформы -->
     <div class="sure-logout-close" id="logout">
@@ -641,6 +752,161 @@
         <div class="purchase-continue-btn" onclick="createSell()">
             Create
         </div>
+
+
+        <!-- Шаблоны для раздела Load -->
+        <template id="tmpl_notLoad">
+            <div class="head-of-load">
+                <div class="head-of-load-text">
+                    <div class="head-of-load-description">
+                        All time main numbers
+                    </div>
+                    <div id="head-of-load-title">
+                        Not loaded loads overview
+                    </div>
+                </div>
+                <div class="head-of-load-cards">
+                    <div class="head-of-load-number">
+                        <div class="head-of-load-number-description">
+                            Total orders amount
+                        </div>
+                        <div class="head-of-load-number-number number1">
+                            237 456
+                        </div>
+                    </div>
+                    <div class="head-of-load-number">
+                        <div class="head-of-load-number-description">
+                            Total tons
+                        </div>
+                        <div class="head-of-load-number-number number2">
+                            549 008 t
+                        </div>
+                    </div>
+                    <div class="head-of-load-number">
+                        <div class="head-of-load-number-description">
+                            Total costs
+                        </div>
+                        <div class="head-of-load-number-number number3">
+                            $12 841 142
+                        </div>
+                    </div>
+                    <div class="head-of-load-number">
+                        <div class="head-of-load-number-description">
+                            Total price
+                        </div>
+                        <div class="head-of-load-number-number number3">
+                            $14 917 102
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="not-load-btns-search">
+                <img class="not-load-search-pic" src=""/>
+                <input class="not-load-search" placeholder="Search"/>
+                    <div class="not-load-btn" onclick="selectRowInLoad()">
+                        <img class="not-load-btn-pic" src=""/>
+                        Select
+                    </div>
+                    <div class="not-load-btn-select not-load-btn-select-cansel" onclick="cancelSelectRowInLoad()">
+                        <img class="not-load-btn-pic" src=""/>
+                        Cancel
+                    </div>
+                    <div class="not-load-btn-select not-load-btn-select-delete" onclick="selectRowInLoad()">
+                        <img class="not-load-btn-pic" src=""/>
+                        Delete
+                    </div>
+                    <div class="not-load-btn-select not-load-btn-select-export" onclick="selectRowInLoad()">
+                        <img class="not-load-btn-pic" src=""/>
+                        Export
+                    </div>
+                    <div class="not-load-btn">
+                        <img class="not-load-btn-pic" src=""/>
+                        Filter by
+                    </div>
+                    <div class="not-load-btn">
+                        <img class="not-load-btn-pic" src=""/>
+                        Sort by
+                    </div>
+                    <div class="not-load-btn">
+                        <img class="not-load-btn-pic" src=""/>
+                        Export
+                    </div>
+            </div>
+            <div class="not-load-table">
+                <div class="not-load-row-names">
+                    <input class="load-select-input-check" type="checkbox">
+                    <div class="not-load-row-name">
+                        Load#
+                    </div>
+                    <div class="not-load-row-name">
+                        PI#
+                    </div>
+                    <div class="not-load-row-name">
+                        Product Name
+                    </div>
+                    <div class="not-load-row-name">
+                        Manufacturer
+                    </div>
+                    <div class="not-load-row-name">
+                        Quantity (Tons)
+                    </div>
+                    <div class="not-load-row-name">
+                        Price per Ton
+                    </div>
+                    <div class="not-load-row-name">
+                        Total Price
+                    </div>
+                </div>
+                <div class="not-load-row-date">
+                    <input class="load-select-input-check" type="checkbox">
+                    <div class="not-load-row-first-data">
+                        0123456
+                    </div>
+                    <div class="not-load-row-data">
+                        0104828
+                    </div>
+                    <div class="not-load-row-data">
+                        PE0209
+                    </div>
+                    <div class="not-load-row-data">
+                        20086
+                    </div>
+                    <div class="not-load-row-data">
+                        120 t
+                    </div>
+                    <div class="not-load-row-data">
+                        $ 135.00
+                    </div>
+                    <div class="not-load-row-data">
+                        $ 167 545.24
+                    </div>
+                </div>
+                <div class="not-load-row-date">
+                    <input class="load-select-input-check" type="checkbox">
+                    <div class="not-load-row-first-data">
+                        0123456
+                    </div>
+                    <div class="not-load-row-data">
+                        0104828
+                    </div>
+                    <div class="not-load-row-data">
+                        PE0209
+                    </div>
+                    <div class="not-load-row-data">
+                        20086
+                    </div>
+                    <div class="not-load-row-data">
+                        120 t
+                    </div>
+                    <div class="not-load-row-data">
+                        $ 135.00
+                    </div>
+                    <div class="not-load-row-data">
+                        $ 167 545.24
+                    </div>
+                </div>
+            </div>
+        </template>
 </body>
 </html>
 
