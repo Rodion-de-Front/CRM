@@ -1,7 +1,13 @@
+@font-face {
+    font-family: 'Open Sans';
+    font-style: normal;
+    src: url('fonts/OpenSans-VariableFont_wdth\,wght.ttf') format('truetype');
+  }
+
 body {
     margin: 0;
     padding: 0;
-    font-family: Open Sans;
+    font-family: 'Open Sans', sans-serif;
 }
 
 body::-webkit-scrollbar {
@@ -250,7 +256,7 @@ body::-webkit-scrollbar-thumb {
 
 .chart-settings-btn {
     height: 40px;
-    width: 148px;
+    width: 160px;
     text-align: center;
     box-sizing: border-box;
     border-radius: 8px;
@@ -267,7 +273,7 @@ body::-webkit-scrollbar-thumb {
 
 .chart-price-analytic-settings-btn {
     height: 40px;
-    width: 151px;
+    width: 160px;
     text-align: center;
     box-sizing: border-box;
     border-radius: 8px;
@@ -870,6 +876,45 @@ body::-webkit-scrollbar-thumb {
     margin-bottom: 32px;
 }
 
+.sure-delete {
+    display: block;
+    position: absolute;
+    z-index: 100;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+    width: 416px;
+    height: 241px;
+    box-sizing: border-box;
+    padding: 40px 48px 40px 48px;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 1);
+}
+
+.title-sure-delete {
+    width: 320px;
+    height: 29px;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 29px;
+    text-align: center;
+    color:rgba(25, 27, 46, 1);
+    margin-bottom: 12px;
+}
+
+.description-sure-delete {
+    height: 40px;
+    width: 320px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    text-align: center;
+    color: rgba(163, 164, 171, 1);
+    margin-bottom: 32px;
+}
+
 .cancel-logout-btn {
     display: inline-block;
     width: 154px;
@@ -1161,7 +1206,6 @@ body::-webkit-scrollbar-thumb {
     box-sizing: border-box;
     padding: 48px 0 48px 0;
     align-items: center;
-    background-color: rgba(255, 255, 255, 1);
 }
 
 .head-of-load-number {
@@ -1290,9 +1334,21 @@ body::-webkit-scrollbar-thumb {
     color: rgba(255, 255, 255, 1);
 }
 
+.not-load-btn-select-delete-cheked {
+    background-color: rgba(255, 90, 90, 1);
+    border: 1px solid rgba(204, 72, 72, 1);
+    color: rgba(255, 255, 255, 1);
+}
+
 .not-load-btn-select-export {
     background-color: rgba(197, 196, 240, 1);
     border: 1px solid rgba(169, 167, 232, 1);
+    color: rgba(255, 255, 255, 1);
+}
+
+.not-load-btn-select-export-cheked {
+    background-color: rgba(111, 108, 217, 1);
+    border: 1px solid rgba(89, 86, 174, 1);
     color: rgba(255, 255, 255, 1);
 }
 
@@ -1351,4 +1407,94 @@ body::-webkit-scrollbar-thumb {
     line-height: 22px;
     color: rgba(71, 73, 88, 1);
     margin-right: 48px;
+}
+
+/* Шаблон карточки фильтрации */
+.filter-card {
+    display: none;
+}
+
+.filter-card-active {
+    display: block;
+    position: absolute;
+    z-index: 100;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+    height: 514px;
+    width: 421px;
+    box-sizing: border-box;
+    border-radius: 8px;
+    padding: 40px 48px 40px 48px;
+    background-color: rgba(255, 255, 255, 1);
+}
+
+.filter-card-title {
+    height: 29px;
+    width: 320px;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 29px;
+    color: rgba(25, 27, 46, 1);
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.filter-card-input-name {
+    height: 20px;
+    width: 52px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    color: rgba(25, 27, 46, 1);
+    margin-bottom: 8px;
+}
+
+.filter-card-input {
+    height: 48px;
+    width: 320px;
+    box-sizing: border-box;
+    border-radius: 8px;
+    padding: 12px 16px 12px 16px;
+    background-color: rgba(251, 251, 254, 1);
+    border: 1px solid rgba(232, 232, 234, 1);
+    margin-bottom: 20px;
+}
+
+.cancel-filter-btn {
+    display: inline-block;
+    height: 48px;
+    width: 154px;
+    box-sizing: border-box;
+    border-radius: 8px;
+    padding: 13px 20px 13px 20px;
+    background-color: rgba(248, 248, 253, 1);
+    border: 1px solid rgba(232, 232, 234, 1);
+    text-align: center;
+    cursor: pointer;
+    margin-right: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 22px;
+    color: rgba(25, 27, 46, 1);
+}
+
+.apply-filter-btn {
+    display: inline-block;
+    height: 48px;
+    width: 154px;
+    box-sizing: border-box;
+    border-radius: 8px;
+    padding: 13px 20px 13px 20px;
+    background-color:rgba(197, 196, 240, 1);
+    border: 1px solid rgba(169, 167, 232, 1);
+    text-align: center;
+    cursor: pointer;
+    margin-top: 37px;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 22px;
+    color: rgba(255, 255, 255, 1);
 }

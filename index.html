@@ -454,6 +454,47 @@
         </div>
     </div>
 
+    <!-- Шаблон для подтвержения удаления строки -->
+    <div class="sure-logout-close" id="deleteRow">
+        <div class="title-sure-delete">
+            Are you sure?
+        </div>
+        <div class="description-sure-delete">
+            All the selected loads will be deleted permanently
+        </div>
+        <div class="cancel-logout-btn" onclick="cancelDelete()">
+            Cancel
+        </div>
+        <div class="yes-logout-btn" onclick="deleteSelectRowInLoad()">
+                Delete
+        </div>
+    </div>
+
+    <!-- Шаблон для фильтрации удаления строк -->
+    <div id="filterRow" class="filter-card">
+        <div class="filter-card-title">
+            Filter Loads
+        </div>
+        <div class="filter-card-input-name">
+            Product
+        </div>
+        <input class="filter-card-input" placeholder="Enter and Pick a product"/>
+        <div class="filter-card-input-name">
+            Manufacturer
+        </div>
+        <input class="filter-card-input" placeholder="Enter and Pick a manufacturer"/>
+        <div class="filter-card-input-name">
+            Origin
+        </div>
+        <input class="filter-card-input" placeholder="Enter and Pick an origin"/>
+        <div class="cancel-filter-btn" onclick="cancelFilter()">
+            Cancel
+        </div>
+        <div class="apply-filter-btn" onclick="applyFilter()">
+            Apply
+        </div>
+    </div>
+
     <!-- Шаблон меню с уведомлениями, когда их нет -->
     <template id="tmpl_noNotifications">
         <img class="noNotifications-pic" src=""/>
@@ -811,15 +852,15 @@
                         <img class="not-load-btn-pic" src=""/>
                         Cancel
                     </div>
-                    <div class="not-load-btn-select not-load-btn-select-delete" onclick="selectRowInLoad()">
+                    <div id="select-delete-btn" class="not-load-btn-select not-load-btn-select-delete" onclick="deleteSelectRowInLoadBanner()">
                         <img class="not-load-btn-pic" src=""/>
                         Delete
                     </div>
-                    <div class="not-load-btn-select not-load-btn-select-export" onclick="selectRowInLoad()">
+                    <div id="select-export-btn" class="not-load-btn-select not-load-btn-select-export" onclick="selectRowInLoad()">
                         <img class="not-load-btn-pic" src=""/>
                         Export
                     </div>
-                    <div class="not-load-btn">
+                    <div class="not-load-btn" onclick="filterRowInLoad()">
                         <img class="not-load-btn-pic" src=""/>
                         Filter by
                     </div>
@@ -834,7 +875,7 @@
             </div>
             <div class="not-load-table">
                 <div class="not-load-row-names">
-                    <input class="load-select-input-check" type="checkbox">
+                    <input class="load-select-input-check" type="checkbox" onclick="toggleCheckBoxInputAll()">
                     <div class="not-load-row-name">
                         Load#
                     </div>
@@ -857,10 +898,10 @@
                         Total Price
                     </div>
                 </div>
-                <div class="not-load-row-date">
-                    <input class="load-select-input-check" type="checkbox">
+                <div id="row-check-box1" class="not-load-row-date">
+                    <input class="load-select-input-check" type="checkbox" onclick="toggleCheckBoxInput()">
                     <div class="not-load-row-first-data">
-                        0123456
+                        0123451
                     </div>
                     <div class="not-load-row-data">
                         0104828
@@ -881,10 +922,34 @@
                         $ 167 545.24
                     </div>
                 </div>
-                <div class="not-load-row-date">
-                    <input class="load-select-input-check" type="checkbox">
+                <div id="row-check-box2" class="not-load-row-date">
+                    <input class="load-select-input-check" type="checkbox" onclick="toggleCheckBoxInput()">
                     <div class="not-load-row-first-data">
-                        0123456
+                        0123452
+                    </div>
+                    <div class="not-load-row-data">
+                        0104828
+                    </div>
+                    <div class="not-load-row-data">
+                        PE0209
+                    </div>
+                    <div class="not-load-row-data">
+                        20086
+                    </div>
+                    <div class="not-load-row-data">
+                        120 t
+                    </div>
+                    <div class="not-load-row-data">
+                        $ 135.00
+                    </div>
+                    <div class="not-load-row-data">
+                        $ 167 545.24
+                    </div>
+                </div>
+                <div id="row-check-box3" class="not-load-row-date">
+                    <input class="load-select-input-check" type="checkbox" onclick="toggleCheckBoxInput()">
+                    <div class="not-load-row-first-data">
+                        0123453
                     </div>
                     <div class="not-load-row-data">
                         0104828

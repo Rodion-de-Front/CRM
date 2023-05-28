@@ -341,3 +341,80 @@ function cancelSelectRowInLoad() {
         loadCheckBox[i].style.display = 'none';
     }
 }
+
+function deleteSelectRowInLoadBanner() {
+    main.classList.toggle('main-opacity');
+    document.getElementById('deleteRow').classList.toggle('sure-delete');
+}
+
+function cancelDelete() {
+    main.classList.toggle('main-opacity');
+    document.getElementById('deleteRow').classList.toggle('sure-delete');
+}
+
+function toggleCheckBoxInputAll() {
+    let firstInputCheck = document.querySelector('.load-select-input-check');
+    let loadCheckBox = document.querySelectorAll('.load-select-input-check');
+
+    if (firstInputCheck.checked) {
+        for (let i = 0; i < loadCheckBox.length; i++) {
+            loadCheckBox[i].checked = true;
+            document.getElementById('select-delete-btn').classList.add('not-load-btn-select-delete-cheked');
+            document.getElementById('select-export-btn').classList.add('not-load-btn-select-export-cheked');
+        }
+    }
+
+    else if (!firstInputCheck.checked) {
+        for (let i = 0; i < loadCheckBox.length; i++) {
+            loadCheckBox[i].checked = false;
+            document.getElementById('select-delete-btn').classList.remove('not-load-btn-select-delete-cheked');
+            document.getElementById('select-export-btn').classList.remove('not-load-btn-select-export-cheked');
+        }
+    }
+}
+
+function toggleCheckBoxInput() {
+
+    let checkboxes = document.querySelectorAll('.load-select-input-check');
+
+    if (document.getElementById('select-delete-btn').classList.contains('not-load-btn-select-delete-cheked')) {
+
+        let allUnchecked = [...checkboxes].every((checkbox) => !checkbox.checked);
+        if (allUnchecked) {
+            document.getElementById('select-delete-btn').classList.remove('not-load-btn-select-delete-cheked');
+            document.getElementById('select-export-btn').classList.remove('not-load-btn-select-export-cheked');
+        } else {
+            return
+        }
+
+    } else {
+
+        document.getElementById('select-delete-btn').classList.add('not-load-btn-select-delete-cheked');
+        document.getElementById('select-export-btn').classList.add('not-load-btn-select-export-cheked');
+
+    }
+}
+
+function deleteSelectRowInLoad() {
+    let loadCheckBox = document.querySelectorAll('.load-select-input-check');
+    for (let i = 1; i < loadCheckBox.length; i++) {
+        if (loadCheckBox[i].checked) {
+            loadCheckBox[i].closest('.not-load-row-date').remove();
+            document.getElementById('select-delete-btn').classList.remove('not-load-btn-select-delete-cheked');
+            document.getElementById('select-export-btn').classList.remove('not-load-btn-select-export-cheked');
+        }
+    }
+
+    main.classList.toggle('main-opacity');
+    document.getElementById('deleteRow').classList.toggle('sure-delete');
+}
+
+function filterRowInLoad() {
+    main.classList.toggle('main-opacity');
+    document.getElementById('filterRow').classList.toggle('filter-card-active');
+}
+
+function cancelFilter() {
+    main.classList.toggle('main-opacity');
+    document.getElementById('filterRow').classList.toggle('filter-card-active');
+}
