@@ -358,6 +358,8 @@ body::-webkit-scrollbar-thumb {
     display: flex;
     align-items: center;
     transition: 1s;
+    position: fixed;
+    width: 1540px;
 }
 
 .lines {
@@ -1106,14 +1108,14 @@ body::-webkit-scrollbar-thumb {
 
 /* Стили для бокового основного меню */
 #side-menu {
-    position: absolute;
+    position: fixed;
     width: 320px;
     height: 100vh;
     top:0;
     bottom: 0;
     left: -320px;
-    background-color: rgba(255, 255, 255, 0.5);
-    border: 1px solid rgba(232, 232, 234, 0.5);    ;
+    background-color: rgba(255, 255, 255, 1);
+    border: 1px solid rgba(232, 232, 234, 1);    ;
     transition: all 0.4s;
     padding: 32px 0 32px 0;
     box-sizing: border-box;
@@ -1148,6 +1150,11 @@ body::-webkit-scrollbar-thumb {
     cursor: pointer;
     display: flex;
     align-items: center;
+}
+
+.menu-item:hover {
+    transition: 0.3s;
+    background-color: rgba(233, 233, 249, 1);
 }
 
 .menu-item-pic {
@@ -1203,7 +1210,6 @@ body::-webkit-scrollbar-thumb {
 .head-of-load {
     height: 182px;
     display: flex;
-    box-sizing: border-box;
     padding: 48px 0 48px 0;
     align-items: center;
 }
@@ -1229,7 +1235,7 @@ body::-webkit-scrollbar-thumb {
     font-weight: 600;
     line-height: 29px;
     color: rgba(25, 27, 46, 1);
-    margin-right: 50px;
+    margin-right: 90px;
 }
 
 .head-of-load-number {
@@ -1284,7 +1290,7 @@ body::-webkit-scrollbar-thumb {
     padding: 12px;
     background-color: rgba(251, 251, 254, 1);
     border: 1px solid rgba(232, 232, 234, 1);
-    margin-right: 72px;
+    margin-right: 400px;
 }
 
 .not-load-btn {
@@ -1381,6 +1387,12 @@ body::-webkit-scrollbar-thumb {
     box-sizing: border-box;
     padding: 10px 0 10px 0;
     border-bottom: 2px solid rgba(232, 232, 234, 0.5);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.not-load-row-date:hover {
+    background-color: rgba(197, 196, 240, 1);
 }
 
 .load-select-input-check {
@@ -1407,6 +1419,10 @@ body::-webkit-scrollbar-thumb {
     line-height: 22px;
     color: rgba(71, 73, 88, 1);
     margin-right: 48px;
+}
+
+.not-load-row-data-paid {
+    color: rgba(240, 164, 88, 1);
 }
 
 /* Шаблон карточки фильтрации */
@@ -1497,4 +1513,254 @@ body::-webkit-scrollbar-thumb {
     font-weight: 600;
     line-height: 22px;
     color: rgba(255, 255, 255, 1);
+}
+
+/* Стили для Inner page */
+.innerPagePurchase {
+    display: flex;
+    margin-top: 112px;
+}
+
+.inner-page-purchase-info {
+    display: inline-block;
+    height: 968px;
+    width: 476px;
+    box-sizing: border-box;
+    padding: 34px 40px 20px 40px;
+    border-right: 1px solid rgba(232, 232, 234, 1);
+    border-top: 3px solid rgba(232, 232, 234, 1);
+}
+
+.inner-page-purchase-info-name {
+    height: 29px;
+    width: 110px;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 29px;
+    color: rgba(25, 27, 46, 1);
+    margin-bottom: 74px;
+}
+
+.inner-page-purchase-info-block {
+    margin-bottom: 32px;
+}
+
+.inner-page-purchase-info-block-name {
+    display: inline-block;
+    height: 22px;
+    width: 180px;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 22px;
+    color: rgba(117, 118, 130, 1);
+}
+
+.inner-page-purchase-info-block-content {
+    display: inline-block;
+    height: 22px;
+    width: 196px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22px;
+    color: rgba(76, 84, 90, 1);
+}
+
+.paid-color {
+    color: rgba(240, 164, 88, 1);
+}
+
+.inner-page-purchase-btn-info {
+    text-align: center;
+    display: inline-block;
+    height: 48px;
+    width: 328px;
+    box-sizing: border-box;
+    border-radius: 8px;
+    padding: 12px 20px 12px 20px;
+    background-color: rgba(241, 240, 251, 1);
+    border: 1px solid rgba(140, 137, 225, 1);
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 22px;
+    color: rgba(89, 86, 174, 1);
+    margin-top: 360px;
+    cursor: pointer;
+}
+
+.inner-page-purchase-btn-delete {
+    text-align: center;
+    display: inline-block;
+    height: 48px;
+    width: 48px;
+    box-sizing: border-box;
+    border-radius: 8px;
+    padding: 12px;
+    background-color: rgba(255, 90, 90, 1);
+    border: 1px solid rgba(204, 72, 72, 1);
+    margin-top: 360px;
+    cursor: pointer;
+}
+
+.inner-page-purchase-content {
+    display: inline-block;
+    height: 968px;
+}
+
+.inner-page-purchase-menu {
+    display: flex;
+    align-items: center;
+    height: 96px;
+    box-sizing: border-box;
+    border-radius: 0px;
+    padding: 0px 48px 0px 40px;
+    border-top: 3px solid rgba(232, 232, 234, 1);
+    border-bottom: 3px solid rgba(232, 232, 234, 1);
+}
+
+.inner-page-purchase-pages-menu {
+    margin-right: 70px;
+}
+
+.inner-another-page-purchase {
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 22px;
+    color: rgba(25, 27, 46, 1);
+    margin-right: 32px;
+    cursor: pointer;
+}
+
+.inner-another-page-purchase-load {
+    width: 46px;
+}
+
+.inner-another-page-purchase-costs {
+    width: 126px;
+}
+
+.inner-another-page-purchase-doc {
+    width: 163px;
+}
+
+.inner-another-page-purchase-btn-back {
+    text-align: center;
+    display: inline-block;
+    height: 48px;
+    width: 160px;
+    box-sizing: border-box;
+    border-radius: 8px;
+    padding: 13px 20px 13px 20px;
+    border: 1px solid rgba(232, 232, 234, 1);
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 22px;
+    color: rgba(25, 27, 46, 1);
+    margin-right: 12px;
+    cursor: pointer;
+}
+
+.inner-another-page-purchase-btn-save {
+    text-align: center;
+    display: inline-block;
+    height: 48px;
+    width: 160px;
+    box-sizing: border-box;
+    border-radius: 8px;
+    padding: 13px 20px 13px 20px;
+    background-color: rgba(111, 108, 217, 1);
+    border: 1px solid rgba(89, 86, 174, 1);
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 22px;
+    color: rgba(255, 255, 255, 1);
+    cursor: pointer;
+}
+
+#inner-page-purchase-info-container {
+    padding: 40px;
+}
+
+.inner-page-purchase-footer {
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
+}
+
+.inner-page-purchase-footer-content {
+    height: 24px;
+    width: 227px;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 24px;
+    color: rgba(25, 27, 46, 1);
+    margin-right: 500px;
+}
+
+.inner-page-purchase-footer-footer-btn {
+    height: 48px;
+    width: 129px;
+    box-sizing: border-box;
+    border-radius: 8px;
+    padding: 13px 0 13px 0;
+    background-color: rgba(111, 108, 217, 1);
+    border: 1px solid rgba(89, 86, 174, 1);
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 22px;
+    color: rgba(255, 255, 255, 1);
+    text-align: center;
+    cursor: pointer;
+}
+
+.addit-costs-container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 1400px;
+}
+
+.addit-costs-container-block {
+    margin-right: 20px;
+}
+
+.addit-costs-input-name {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    color: rgba(25, 27, 46, 1);
+    margin-bottom: 8px;
+}
+
+.addit-costs-input {
+    height: 48px;
+    width: 320px;
+    box-sizing: border-box;
+    border-radius: 8px;
+    padding: 12px 16px 12px 16px;
+    background-color: rgba(251, 251, 254, 1);
+    border: 1px solid rgba(232, 232, 234, 1);
+    margin-bottom: 20px;
+}
+
+.total-cost {
+    width: 274px;
+}
+
+.delete-cost-btn {
+    height: 48px;
+    width: 154px;
+    box-sizing: border-box;
+    border-radius: 8px;
+    padding: 13px 20px 13px 20px;
+    background-color: rgba(255, 189, 189, 1);
+    border: 1px solid rgba(255, 156, 156, 1);
+    margin-right: 12px;
+}
+
+.add-cost-btn {
+    height: 48px;
+    width: 154px;
+    box-sizing: border-box;
+    border-radius: 8px;
+    padding: 13px 20px 13px 20px;
 }

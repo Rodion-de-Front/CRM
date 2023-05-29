@@ -122,6 +122,11 @@
                     <div class="menu-item-name" onclick="renderDashboardPaper('Dashboard')">Dashboard</div>
                 </div>
 
+                <div class="menu-item">
+                    <img class="menu-item-pic" src=""/>
+                    <div class="menu-item-name" onclick="renderPurchasesPaper('Purchases')">Purchases</div>
+                </div>
+
                 <div id="load" class="menu-item" onclick="">
                     <img class="menu-item-pic" src="img/loads.png"/>
                     <div class="menu-item-name">Loads</div>
@@ -795,6 +800,185 @@
         </div>
 
 
+        <!-- Шаблоны для раздела purchases -->
+        <template id="tmpl_purchases">
+            <div class="head-of-load">
+                <div class="head-of-load-text">
+                    <div class="head-of-load-description">
+                        All time main numbers
+                    </div>
+                    <div id="head-of-load-title">
+                        Not loaded loads overview
+                    </div>
+                </div>
+                <div class="head-of-load-cards">
+                    <div class="head-of-load-number">
+                        <div class="head-of-load-number-description">
+                            Total orders amount
+                        </div>
+                        <div class="head-of-load-number-number number1">
+                            237 456
+                        </div>
+                    </div>
+                    <div class="head-of-load-number">
+                        <div class="head-of-load-number-description">
+                            Total tons
+                        </div>
+                        <div class="head-of-load-number-number number2">
+                            549 008 t
+                        </div>
+                    </div>
+                    <div class="head-of-load-number">
+                        <div class="head-of-load-number-description">
+                            Total costs
+                        </div>
+                        <div class="head-of-load-number-number number3">
+                            $12 841 142
+                        </div>
+                    </div>
+                    <div class="head-of-load-number">
+                        <div class="head-of-load-number-description">
+                            Total price
+                        </div>
+                        <div class="head-of-load-number-number number3">
+                            $14 917 102
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="not-load-btns-search">
+                <img class="not-load-search-pic" src=""/>
+                <input class="not-load-search" placeholder="Search"/>
+                    <div class="not-load-btn" onclick="selectRowInLoad()">
+                        <img class="not-load-btn-pic" src=""/>
+                        Select
+                    </div>
+                    <div class="not-load-btn-select not-load-btn-select-cansel" onclick="cancelSelectRowInLoad()">
+                        <img class="not-load-btn-pic" src=""/>
+                        Cancel
+                    </div>
+                    <div id="select-delete-btn" class="not-load-btn-select not-load-btn-select-delete" onclick="deleteSelectRowInLoadBanner()">
+                        <img class="not-load-btn-pic" src=""/>
+                        Delete
+                    </div>
+                    <div id="select-export-btn" class="not-load-btn-select not-load-btn-select-export" onclick="selectRowInLoad()">
+                        <img class="not-load-btn-pic" src=""/>
+                        Export
+                    </div>
+                    <div class="not-load-btn" onclick="filterRowInLoad()">
+                        <img class="not-load-btn-pic" src=""/>
+                        Filter by
+                    </div>
+                    <div class="not-load-btn">
+                        <img class="not-load-btn-pic" src=""/>
+                        Sort by
+                    </div>
+                    <div class="not-load-btn">
+                        <img class="not-load-btn-pic" src=""/>
+                        Export
+                    </div>
+            </div>
+            <div class="not-load-table">
+                <div class="not-load-row-names">
+                    <input class="load-select-input-check" type="checkbox" onclick="toggleCheckBoxInputAll()">
+                    <div class="not-load-row-name">
+                        PI#
+                    </div>
+                    <div class="not-load-row-name">
+                        Product
+                    </div>
+                    <div class="not-load-row-name">
+                        Manufacturer
+                    </div>
+                    <div class="not-load-row-name">
+                        Quantity (Tons)
+                    </div>
+                    <div class="not-load-row-name">
+                        Price per Ton
+                    </div>
+                    <div class="not-load-row-name">
+                        Total Price
+                    </div>
+                    <div class="not-load-row-name">
+                        Paid
+                    </div>
+                </div>
+                <div id="row-check-box1" class="not-load-row-date" onclick="innerPagePurchase(1)">
+                    <input class="load-select-input-check" type="checkbox" onclick="toggleCheckBoxInput()">
+                    <div class="not-load-row-first-data">
+                        0104828
+                    </div>
+                    <div class="not-load-row-data">
+                        PE0209
+                    </div>
+                    <div class="not-load-row-data">
+                        20086
+                    </div>
+                    <div class="not-load-row-data">
+                        120 t
+                    </div>
+                    <div class="not-load-row-data">
+                        $ 135.00
+                    </div>
+                    <div class="not-load-row-data">
+                        $ 167 545.24
+                    </div>
+                    <div class="not-load-row-data not-load-row-data-paid">
+                        $ 5 000
+                    </div>
+                </div>
+                <div id="row-check-box2" class="not-load-row-date">
+                    <input class="load-select-input-check" type="checkbox" onclick="toggleCheckBoxInput()">
+                    <div class="not-load-row-first-data">
+                        0123452
+                    </div>
+                    <div class="not-load-row-data">
+                        PE0209
+                    </div>
+                    <div class="not-load-row-data">
+                        20086
+                    </div>
+                    <div class="not-load-row-data">
+                        120 t
+                    </div>
+                    <div class="not-load-row-data">
+                        $ 135.00
+                    </div>
+                    <div class="not-load-row-data">
+                        $ 167 545.24
+                    </div>
+                    <div class="not-load-row-data not-load-row-data-paid">
+                        $ 5 000
+                    </div>
+                </div>
+                <div id="row-check-box3" class="not-load-row-date">
+                    <input class="load-select-input-check" type="checkbox" onclick="toggleCheckBoxInput()">
+                    <div class="not-load-row-first-data">
+                        0123453
+                    </div>
+                    <div class="not-load-row-data">
+                        PE0209
+                    </div>
+                    <div class="not-load-row-data">
+                        20086
+                    </div>
+                    <div class="not-load-row-data">
+                        120 t
+                    </div>
+                    <div class="not-load-row-data">
+                        $ 135.00
+                    </div>
+                    <div class="not-load-row-data">
+                        $ 167 545.24
+                    </div>
+                    <div class="not-load-row-data not-load-row-data-paid">
+                        $ 5 000
+                    </div>
+                </div>
+            </div>
+        </template>
+
+
         <!-- Шаблоны для раздела Load -->
         <template id="tmpl_notLoad">
             <div class="head-of-load">
@@ -971,6 +1155,297 @@
                     </div>
                 </div>
             </div>
+        </template>
+
+        <!-- Шаблон для страницы конкретной выбранной строчки -->
+        <template id="tmpl_innerPagePurchase">
+            <div class="innerPagePurchase">
+                <div class="inner-page-purchase-info">
+                    <div class="inner-page-purchase-info-name">${rowName}</div>
+                    <div class="inner-page-purchase-info-block">
+                        <div class="inner-page-purchase-info-block-name">
+                            PI#
+                        </div>
+                        <div class="inner-page-purchase-info-block-content">
+                            ${rowName}
+                        </div>
+                    </div>
+                    <div class="inner-page-purchase-info-block">
+                        <div class="inner-page-purchase-info-block-name">
+                            Product
+                        </div>
+                        <div class="inner-page-purchase-info-block-content">
+                            ${rowContent}
+                        </div>
+                    </div>
+                    <div class="inner-page-purchase-info-block">
+                        <div class="inner-page-purchase-info-block-name">
+                            Manufacturer
+                        </div>
+                        <div class="inner-page-purchase-info-block-content">
+                            ${rowContent}
+                        </div>
+                    </div>
+                    <div class="inner-page-purchase-info-block">
+                        <div class="inner-page-purchase-info-block-name">
+                            Quantity (Tons)
+                        </div>
+                        <div class="inner-page-purchase-info-block-content">
+                            ${rowContent}
+                        </div>
+                    </div>
+                    <div class="inner-page-purchase-info-block">
+                        <div class="inner-page-purchase-info-block-name">
+                                Price per Ton
+                        </div>
+                        <div class="inner-page-purchase-info-block-content">
+                            ${rowContent}
+                        </div>
+                    </div>
+                    <div class="inner-page-purchase-info-block">
+                        <div class="inner-page-purchase-info-block-name">
+                            Total Price
+                        </div>
+                        <div class="inner-page-purchase-info-block-content">
+                            ${rowContent}
+                        </div>
+                    </div>
+                    <div class="inner-page-purchase-info-block">
+                        <div class="inner-page-purchase-info-block-name">
+                            Paid
+                        </div>
+                        <div class="inner-page-purchase-info-block-content paid-color">
+                            ${rowContent}
+                        </div>
+                    </div>
+                    <div class="inner-page-purchase-btn-info">
+                        <img src=""/>
+                        Edit purchase info
+                    </div>
+                    <div class="inner-page-purchase-btn-delete">
+                        <img class="inner-page-purchase-btn-delete-pic" src=""/>
+                    </div>
+                </div>
+                <div class="inner-page-purchase-content">
+                    <div class="inner-page-purchase-menu">
+                        <div class="inner-page-purchase-pages-menu">
+                            <div class="inner-another-page-purchase inner-another-page-purchase-load" onclick="innerPagePurchaseMenu()">
+                                Loads
+                            </div>
+                            <div class="inner-another-page-purchase inner-another-page-purchase-costs" onclick="innerPageAdditionalCosts()">
+                                Additional Costs
+                            </div>
+                            <div class="inner-another-page-purchase inner-another-page-purchase-doc" onclick="innerPageAttachedDocs()">
+                                Attached Documents
+                            </div>
+                        </div>
+                        <div class="inner-page-purchase-menu-btns">
+                            <div class="inner-another-page-purchase-btn-back" onclick="innerPagePurchaseBack()">
+                                Back
+                            </div>
+                            <div class="inner-another-page-purchase-btn-save" onclick="innerPagePurchaseSaveandBack()">
+                                Save and back
+                            </div>
+                        </div>
+                    </div>
+                    <div id="inner-page-purchase-info-container">
+                        <div class="not-load-row-names">
+                            <input class="load-select-input-check" type="checkbox"/>
+                            <div class="not-load-row-name">
+                                Load#
+                            </div>
+                            <div class="not-load-row-name">
+                                PI#
+                            </div>
+                            <div class="not-load-row-name">
+                                Product Name
+                            </div>
+                            <div class="not-load-row-name">
+                                Manufacturer
+                            </div>
+                            <div class="not-load-row-name">
+                                Quantity (Tons)
+                            </div>
+                            <div class="not-load-row-name">
+                                Price per Ton
+                            </div>
+                            <div class="not-load-row-name">
+                                Total Price
+                            </div>
+                        </div>
+                        <div id="row-purchase-check-box1" class="not-load-row-date">
+                            <input class="load-select-input-check" type="checkbox"/>
+                            <div class="not-load-row-first-data">
+                                0123451
+                            </div>
+                            <div class="not-load-row-data">
+                                0104828
+                            </div>
+                            <div class="not-load-row-data">
+                                PE0209
+                            </div>
+                            <div class="not-load-row-data">
+                                20086
+                            </div>
+                            <div class="not-load-row-data">
+                                120 t
+                            </div>
+                            <div class="not-load-row-data">
+                                $ 135.00
+                            </div>
+                            <div class="not-load-row-data">
+                                $ 167 545.24
+                            </div>
+                        </div>
+                        <div id="row-purchase-check-box1" class="not-load-row-date">
+                            <input class="load-select-input-check" type="checkbox"/>
+                            <div class="not-load-row-first-data">
+                                0123451
+                            </div>
+                            <div class="not-load-row-data">
+                                0104828
+                            </div>
+                            <div class="not-load-row-data">
+                                PE0209
+                            </div>
+                            <div class="not-load-row-data">
+                                20086
+                            </div>
+                            <div class="not-load-row-data">
+                                120 t
+                            </div>
+                            <div class="not-load-row-data">
+                                $ 135.00
+                            </div>
+                            <div class="not-load-row-data">
+                                $ 167 545.24
+                            </div>
+                        </div>
+                        <div class="inner-page-purchase-footer">
+                            <div class="inner-page-purchase-footer-content">
+                                Quantity delivered: 50 t
+                            </div>
+                            <div class="inner-page-purchase-footer-footer-btn">
+                                Create load
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+        </template>
+
+        <!-- Шаблоны окон, когда мы находимся внутри конкретной строчки  -->
+        <template id="tmpl_inner_page_purchase_table_content">
+            <div class="not-load-row-names">
+                <input class="load-select-input-check" type="checkbox"/>
+                <div class="not-load-row-name">
+                    Load#
+                </div>
+                <div class="not-load-row-name">
+                    PI#
+                </div>
+                <div class="not-load-row-name">
+                    Product Name
+                </div>
+                <div class="not-load-row-name">
+                    Manufacturer
+                </div>
+                <div class="not-load-row-name">
+                    Quantity (Tons)
+                </div>
+                <div class="not-load-row-name">
+                    Price per Ton
+                </div>
+                <div class="not-load-row-name">
+                    Total Price
+                </div>
+            </div>
+            <div id="row-purchase-check-box1" class="not-load-row-date">
+                <input class="load-select-input-check" type="checkbox"/>
+                <div class="not-load-row-first-data">
+                    0123451
+                </div>
+                <div class="not-load-row-data">
+                    0104828
+                </div>
+                <div class="not-load-row-data">
+                    PE0209
+                </div>
+                <div class="not-load-row-data">
+                    20086
+                </div>
+                <div class="not-load-row-data">
+                    120 t
+                </div>
+                <div class="not-load-row-data">
+                    $ 135.00
+                </div>
+                <div class="not-load-row-data">
+                    $ 167 545.24
+                </div>
+            </div>
+        </template>
+
+        <template id="tmpl_inner_page_purchase_addit_costs">
+            <div class="addit-costs-container">
+                <div class="addit-costs-container-block">
+                    <div class="addit-costs-input-name">
+                        Money Transfer
+                    </div>
+                    <input class="addit-costs-input" placeholder="Enter expense value"/>
+                </div>
+                <div class="addit-costs-container-block">
+                    <div class="addit-costs-input-name">
+                        Custom
+                    </div>
+                    <input class="addit-costs-input" placeholder="Enter expense value"/>
+                </div>
+                <div class="addit-costs-container-block">
+                    <div class="addit-costs-input-name">
+                        Bukhara expenses
+                    </div>
+                    <input class="addit-costs-input" placeholder="Enter expense value"/>
+                </div>
+                <div class="addit-costs-container-block">
+                    <div class="addit-costs-input-name">
+                        Delivery to customer
+                    </div>
+                    <input class="addit-costs-input" placeholder="Enter expense value"/>
+                </div>
+                <div class="addit-costs-container-block">
+                    <div class="addit-costs-input-name">
+                        Transportation
+                    </div>
+                    <input class="addit-costs-input" placeholder="Enter expense value"/>
+                </div>
+                <div class="addit-costs-container-block">
+                    <div class="addit-costs-input-name">
+                        CommisionUzb transportation
+                    </div>
+                    <input class="addit-costs-input" placeholder="Enter expense value"/>
+                </div>
+                <div class="addit-costs-container-block">
+                    <div class="addit-costs-input-name">
+                        Uzb transportation
+                    </div>
+                    <input class="addit-costs-input" placeholder="Enter expense value"/>
+                </div>
+            </div>
+            <div class="inner-page-purchase-footer">
+                <div class="inner-page-purchase-footer-content total-cost">
+                    Total additional costs: $ 0.00
+                </div>
+                <div class="inner-page-purchase-footer-footer-btn delete-cost-btn">
+                    Delete Cost
+                </div>
+                <div class="inner-page-purchase-footer-footer-btn add-cost-btn">
+                    Add Cost
+                </div>
+            </div>
+        </template>
+
+        <template id="tmpl_inner_page_attached_docs">
+
         </template>
 </body>
 </html>

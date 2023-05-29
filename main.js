@@ -7,6 +7,10 @@ let tmpl_noNotifications = document.getElementById('tmpl_noNotifications');
 let tmpl_notLoad = document.getElementById('tmpl_notLoad');
 let tmpl_dashboard = document.getElementById('tmpl_dashboard');
 let paper_name = document.getElementById('menu-name');
+let tmpl_innerPagePurchase = document.getElementById('tmpl_innerPagePurchase');
+let tmpl_inner_page_purchase_table_content = document.getElementById('tmpl_inner_page_purchase_table_content');
+let tmpl_inner_page_purchase_addit_costs = document.getElementById('tmpl_inner_page_purchase_addit_costs');
+let tmpl_inner_page_attached_docs = document.getElementById('tmpl_inner_page_attached_docs');
 
 //Вспомогательные переменные
 let PI = '';
@@ -278,8 +282,59 @@ function deleteNotification(notification_card_id) {
 function renderDashboardPaper(chapter) {
     document.getElementById('content').innerHTML = tmpl_dashboard.innerHTML;
     document.getElementById('menu-name').innerHTML = chapter;
+    document.getElementById('content').style.padding = '40px 48px 40px 128px';
 }
 
+function renderPurchasesPaper(chapter) {
+    document.getElementById('content').innerHTML = tmpl_purchases.innerHTML;
+    document.getElementById('menu-name').innerHTML = chapter;
+    document.getElementById('head-of-load-title').innerHTML = 'Purchases stats overview';
+    document.getElementById('content').style.padding = '40px 48px 40px 128px';
+}
+
+function innerPagePurchase(row_id) {
+    document.querySelector('.btn-purchase').style.display = 'none';
+    document.querySelector('.btn-sell').style.display = 'none';
+    let row = document.getElementById('row-check-box' + row_id).querySelector('.not-load-row-first-data').innerHTML;
+    let row_content = document.getElementById('row-check-box' + row_id).querySelectorAll('.not-load-row-data');
+    for (let i = 0; i < row_content.length; i++) {
+        tmpl_innerPagePurchase.innerHTML = tmpl_innerPagePurchase.innerHTML.replace('${rowContent}', row_content[i].textContent);
+    }
+    document.getElementById('menu-name').innerHTML += ' - ' + row;
+    tmpl_innerPagePurchase.innerHTML = tmpl_innerPagePurchase.innerHTML.replace('${rowName}', row);
+    tmpl_innerPagePurchase.innerHTML = tmpl_innerPagePurchase.innerHTML.replace('${rowName}', row);
+    document.getElementById('content').style.padding = '0';
+    document.getElementById('content').innerHTML = tmpl_innerPagePurchase.innerHTML;
+}
+
+function innerPagePurchaseMenu() {
+    document.getElementById('inner-page-purchase-info-container').innerHTML = tmpl_inner_page_purchase_table_content.innerHTML
+}
+
+function innerPagePurchaseBack() {
+    document.querySelector('.btn-purchase').style.display = 'block';
+    document.querySelector('.btn-sell').style.display = 'block';
+    document.getElementById('content').innerHTML = tmpl_purchases.innerHTML;
+    document.getElementById('head-of-load-title').innerHTML = 'Purchases stats overview';
+    document.getElementById('content').style.padding = '40px 48px 40px 128px';
+}
+
+function innerPagePurchaseSaveandBack() {
+    document.querySelector('.btn-purchase').style.display = 'block';
+    document.querySelector('.btn-sell').style.display = 'block';
+    document.getElementById('content').innerHTML = tmpl_purchases.innerHTML;
+    document.getElementById('menu-name').innerHTML = 'Purchases';
+    document.getElementById('head-of-load-title').innerHTML = 'Purchases stats overview';
+    document.getElementById('content').style.padding = '40px 48px 40px 128px';
+}
+
+function innerPageAdditionalCosts() {
+    document.getElementById('inner-page-purchase-info-container').innerHTML = tmpl_inner_page_purchase_addit_costs.innerHTML;
+}
+
+function innerPageAttachedDocs() {
+    document.getElementById('inner-page-purchase-info-container').innerHTML = tmpl_inner_page_attached_docs.innerHTML;
+}
 
 //Функции по работе с разделом Load
 
@@ -287,24 +342,28 @@ function renderNotLoadedPaper(chapter) {
     document.getElementById('content').innerHTML = tmpl_notLoad.innerHTML;
     document.getElementById('menu-name').innerHTML = chapter;
     document.getElementById('head-of-load-title').innerHTML = 'Not loaded loads overview';
+    document.getElementById('content').style.padding = '40px 48px 40px 128px';
 }
 
 function renderOnTheWayPaper(chapter) {
     document.getElementById('content').innerHTML = tmpl_notLoad.innerHTML;
     document.getElementById('menu-name').innerHTML = chapter;
     document.getElementById('head-of-load-title').innerHTML = 'On the way loads overview';
+    document.getElementById('content').style.padding = '40px 48px 40px 128px';
 }
 
 function renderWarehousePaper(chapter) {
     document.getElementById('content').innerHTML = tmpl_notLoad.innerHTML;
     document.getElementById('menu-name').innerHTML = chapter;
     document.getElementById('head-of-load-title').innerHTML = 'Warehouse loads overview';
+    document.getElementById('content').style.padding = '40px 48px 40px 128px';
 }
 
 function renderDeliveredPaper(chapter) {
     document.getElementById('content').innerHTML = tmpl_notLoad.innerHTML;
     document.getElementById('menu-name').innerHTML = chapter;
     document.getElementById('head-of-load-title').innerHTML = 'Delivered loads overview';
+    document.getElementById('content').style.padding = '40px 48px 40px 128px';
 }
 
 function selectRowInLoad() {
