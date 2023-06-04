@@ -11,26 +11,7 @@
 
     <!-- Входная форма -->
     <div id="main">
-        <div class="enter">
-            <div class="form">
-                <div class="form-title">
-                    Sign In
-                </div>
-                <div class="form-description">
-                    Enter your credentials in order to get access to the platform
-                </div>
-                <div class="input-name">E-mail</div>
-                <input class="form-input" id="e-mail" placeholder="Enter your e-mail"/><br>
-                <div class="input-name">Password</div>
-                <div class="password">
-                    <input class="form-input" id="password" placeholder="Enter your password" type="password"/>
-                    <img id="password-control" src="img/yes-pass.png" onclick="showPassword()">
-                </div>
-                <div class="form-btn" onclick="enter()">
-                    Sign In
-                </div>
-            </div>
-        </div>
+
     </div>
 
 
@@ -49,7 +30,9 @@
                 <div class="input-name">Password</div>
                 <div class="password">
                     <input class="form-input" id="password" placeholder="Enter your password" type="password"/>
-                    <img id="password-control" src="img/yes-pass.png" onclick="showPassword()">
+                    <div id="eye-pass">
+                        <img id="password-control" src="img/yes-pass.svg" onclick="showPassword()">
+                    </div>
                 </div>
                 <div class="form-btn" onclick="enter()">
                     Sign In
@@ -61,20 +44,20 @@
 
     <!-- Шаблон выпадющего банера после создания purchase -->
     <div id="created-purchase-banner" class="hidden-created-purchase-banner">
-        <img class="successfully-created-purchase-pic" src=""/>
+        <img class="successfully-created-purchase-pic" src="img/success.svg"/>
         <div id="successfully-created-purchase-title">
             Purchase PI#${PI} successfully created!
         </div>
-        <img class="successfully-created-purchase-close-pic" src="img/back.png" onclick="successfullyCreatedPurchaseClose()"/>
+        <img class="successfully-created-purchase-close-pic" src="img/close.svg" onclick="successfullyCreatedPurchaseClose()"/>
     </div>
 
     <!-- Шаблон выпадющего банера после создания sell -->
     <div id="created-sell-banner" class="hidden-created-purchase-banner">
-        <img class="successfully-created-purchase-pic" src=""/>
+        <img class="successfully-created-purchase-pic" src="img/success.svg"/>
         <div id="successfully-created-purchase-title">
             Sale Order Number ${SellNumber} successfully created!
         </div>
-        <img class="successfully-created-purchase-close-pic" src="img/back.png" onclick="successfullyCreatedSellClose()"/>
+        <img class="successfully-created-purchase-close-pic" src="img/close.svg" onclick="successfullyCreatedSellClose()"/>
     </div>
 
 
@@ -82,7 +65,7 @@
     <template id="tmpl_entered">
         <div id="head">
             <div id="menu-pic">
-                <img class="lines" src="img/lines.png" onclick="openMenu()"/>
+                <img class="lines" src="img/lines.svg" onclick="openMenu()"/>
             </div>
             <div id="menu-name" class="title">
                 Dashboard
@@ -94,22 +77,17 @@
                 Sell
             </div>
             <div class="btn-msg" onclick="showNotifications()">
-                <img src="img/msg.png"/>
+                <img src="img/msg.svg"/>
             </div>
             <img class="btn-ava" src="img/Avatar.png" onclick="showProfile()"/>
             <div class="profile-more-close" id="profile-more">
-                <div class="profile-item">
-                    <img class="profile-item-pic" src=""/>
+                <div class="profile-item" onclick="renderMyPortfolio()">
+                    <img class="profile-item-pic" src="img/profile.svg"/>
                     <div class="profile-item-title">My profile</div>
                 </div>
 
-                <div class="profile-item">
-                    <img class="profile-item-pic" src=""/>
-                    <div class="profile-item-title">Settings</div>
-                </div>
-
                 <div class="profile-item" onclick="logOut()">
-                    <img class="profile-item-pic" src=""/>
+                    <img class="profile-item-pic" src="img/logout.svg"/>
                     <div class="profile-item-title-logout">Log out</div>
                 </div>
             </div>
@@ -118,19 +96,19 @@
                 <img class="logo" src=""/>
 
                 <div class="menu-item">
-                    <img class="menu-item-pic" src="img/dashboard.png"/>
+                    <img class="menu-item-pic" src="img/dashboard.svg"/>
                     <div class="menu-item-name" onclick="renderDashboardPaper('Dashboard')">Dashboard</div>
                 </div>
 
                 <div class="menu-item">
-                    <img class="menu-item-pic" src=""/>
+                    <img class="menu-item-pic" src="img/purchases.svg"/>
                     <div class="menu-item-name" onclick="renderPurchasesPaper('Purchases')">Purchases</div>
                 </div>
 
                 <div id="load" class="menu-item" onclick="">
-                    <img class="menu-item-pic" src="img/loads.png"/>
-                    <div class="menu-item-name">Loads</div>
-                    <img class="menu-item-more" src="img/more.png" onclick="showMore('loads')"/>
+                    <img class="menu-item-pic" src="img/loads.svg"/>
+                    <div class="menu-item-name">Purchase Loads</div>
+                    <img class="menu-item-more" src="img/more.svg" onclick="showMore('loads')"/>
                 </div>
 
                 <div id="loads" class="menu-hidden-items">
@@ -141,9 +119,9 @@
                 </div>
 
                 <div id = "deal" class="menu-item">
-                    <img class="menu-item-pic" src=""/>
-                    <div class="menu-item-name">Deals</div>
-                    <img class="menu-item-more" src="img/more.png" onclick="showMore('deals')"/>
+                    <img class="menu-item-pic" src="img/deals.svg"/>
+                    <div class="menu-item-name">Sales</div>
+                    <img class="menu-item-more" src="img/more.svg" onclick="showMore('deals')"/>
                 </div>
 
                 <div id="deals" class="menu-hidden-items">
@@ -152,14 +130,14 @@
                 </div>
 
                 <div class="menu-item">
-                    <img class="menu-item-pic" src=""/>
-                    <div class="menu-item-name">Products</div>
+                    <img class="menu-item-pic" src="img/sales-loads.svg"/>
+                    <div class="menu-item-name">Sales Loads</div>
                 </div>
 
                 <div id ="warehous" class="menu-item">
-                    <img class="menu-item-pic" src=""/>
+                    <img class="menu-item-pic" src="img/warehouse.svg"/>
                     <div class="menu-item-name">Warehouse</div>
-                    <img class="menu-item-more" src="img/more.png" onclick="showMore('warehouse')"/>
+                    <img class="menu-item-more" src="img/more.svg" onclick="showMore('warehouse')"/>
                 </div>
 
                 <div id="warehouse" class="menu-hidden-items">
@@ -168,25 +146,14 @@
                 </div>
 
                 <div class="menu-item">
-                    <img class="menu-item-pic" src=""/>
-                    <div class="menu-item-name">Wagon Locations</div>
-                </div>
-
-                <div id="staf" class="menu-item">
-                    <img class="menu-item-pic" src=""/>
-                    <div class="menu-item-name">Staff</div>
-                    <img class="menu-item-more" src="img/more.png" onclick="showMore('staff')"/>
-                </div>
-
-                <div id="staff" class="menu-hidden-items">
-                    <div class="menu-item-open">Staff Management</div>
-                    <div class="menu-item-open">Sales Performance</div>
+                    <img class="menu-item-pic" src="img/wagons.svg"/>
+                    <div class="menu-item-name">Wagons</div>
                 </div>
 
                 <div id="customer" class="menu-item">
-                    <img class="menu-item-pic" src=""/>
+                    <img class="menu-item-pic" src="img/custom.svg"/>
                     <div class="menu-item-name">Customers</div>
-                    <img class="menu-item-more" src="img/more.png" onclick="showMore('customers')"/>
+                    <img class="menu-item-more" src="img/more.svg" onclick="showMore('customers')"/>
                 </div>
 
                 <div id="customers" class="menu-hidden-items">
@@ -197,9 +164,9 @@
                 </div>
 
                 <div id="manufacturer" class="menu-item">
-                    <img class="menu-item-pic" src=""/>
+                    <img class="menu-item-pic" src="img/manufact.svg"/>
                     <div class="menu-item-name">Manufacturers</div>
-                    <img class="menu-item-more" src="img/more.png" onclick="showMore('manufacturers')"/>
+                    <img class="menu-item-more" src="img/more.svg" onclick="showMore('manufacturers')"/>
                 </div>
 
                 <div id="manufacturers" class="menu-hidden-items">
@@ -207,16 +174,30 @@
                     <div class="menu-item-open">Countries and Cities</div>
                 </div>
 
-                <div class="menu-item">
-                    <img class="menu-item-pic" src=""/>
-                    <div class="menu-item-name">Price Analytics</div>
-                    <img class="menu-item-more" src="img/more.png" onclick="showMore()"/>
+                <div id="products" class="menu-item">
+                    <img class="menu-item-pic" src="img/products.svg"/>
+                    <div class="menu-item-name">Products</div>
                 </div>
 
                 <div class="menu-item">
-                    <img class="menu-item-pic" src=""/>
+                    <img class="menu-item-pic" src="img/analitics.svg"/>
+                    <div class="menu-item-name">Price Analytics</div>
+                </div>
+
+                <div id="staf" class="menu-item">
+                    <img class="menu-item-pic" src="img/staff.svg"/>
+                    <div class="menu-item-name">Staff</div>
+                    <img class="menu-item-more" src="img/more.svg" onclick="showMore('staff')"/>
+                </div>
+
+                <div id="staff" class="menu-hidden-items">
+                    <div class="menu-item-open">Staff Management</div>
+                    <div class="menu-item-open">Sales Performance</div>
+                </div>
+
+                <div class="menu-item">
+                    <img class="menu-item-pic" src="img/balance.svg"/>
                     <div class="menu-item-name">Accounting and Balance</div>
-                    <img class="menu-item-more" src="img/more.png" onclick="showMore()"/>
                 </div>
             </div>
             <div id="content">
@@ -459,6 +440,144 @@
         </div>
     </div>
 
+    <!-- Окно подтверждения об удалении purchase -->
+    <div class="sure-logout-close" id="delete-purchase">
+        <div class="title-sure-logout title-sure-delete-purchase">
+            Are you sure?
+        </div>
+        <div id="description-sure-delete">
+
+        </div>
+        <div class="cancel-logout-btn" onclick="cancelPurchase()">
+            Cancel
+        </div>
+        <div class="yes-logout-btn" onclick="deletePurchase()">
+            Delete
+        </div>
+    </div>
+
+    <!-- Окно для создания load -->
+    <div class="create-load-hidden" id="createLoad">
+        <div class="create-load-title">
+            Create a load
+        </div>
+        <div class="create-load-description">
+            Allocate your purchases into a load
+        </div>
+        <div class="addit-costs-input-name">
+            Quantity (Tons)
+        </div>
+        <input class="form-input crete-load-input" placeholder="Enter quantity in tons"/>
+        <div class="create-load-available">
+            Available to allocate: 500 t
+        </div>
+        <div class="purchase-cancel-btn" onclick="CreateLoadBack()">
+            Cancel
+        </div>
+        <div class="purchase-continue-btn" onclick="CreateLoad()">
+            Create
+        </div>
+    </div>
+
+    <!-- Шаблон для innerPage edit в боковой сводке информации -->
+    <div class="hidden-purchase" id="edit-purchase">
+        <div class="purchase-title edit-title">
+            Edit Purchase
+        </div>
+        <div class="input-purchase-container">
+            <div class="input-purchase-name">
+                PI#
+            </div>
+            <input id="PI#" class="purchase-input" placeholder="Enter PI#"/>
+            <div class="input-purchase-name">
+                Product
+            </div>
+            <input class="purchase-input" placeholder="Enter and pick a product"/>
+            <div class="input-purchase-name">
+                Manufacturer
+            </div>
+            <input class="purchase-input" placeholder="Enter and pick a manufacturer"/>
+            <div class="input-purchase-name">
+                Quantity (Tons)
+            </div>
+            <input class="purchase-input" placeholder="Enter quantity in tons"/>
+            <div class="input-purchase-name">
+                Price per Ton
+            </div>
+            <input class="purchase-input" placeholder="Enter price per Ton"/>
+        </div>
+        <div class="purchase-cancel-btn edit-purchase-btn" onclick="cancelEditPuchase()">
+            Cancel
+        </div>
+        <div class="purchase-continue-btn" onclick="EditPurchase()">
+            Edit
+        </div>
+    </div>
+
+    <!-- Шаблон для добавлния cost -->
+    <div id="addCost" class="filter-card">
+        <div id="input-cost-container">
+            <div class="filter-card-title">
+                Add additional cost
+            </div>
+            <div class="filter-card-input-name add-cost-input-name">
+                Additional cost name
+            </div>
+            <input class="filter-card-input" placeholder="Custom additional cost"/>
+            <div class="filter-card-input-name add-cost-input-name">
+                Additional cost name
+            </div>
+            <input class="filter-card-input" placeholder="Custom additional cost"/>
+        </div>
+        <div class="add-more-costs-btn" onclick="addMoreCosts()">
+            Add more costs
+        </div>
+        <div class="cancel-filter-btn" onclick="cancelCosts()">
+            Cancel
+        </div>
+        <div class="apply-filter-btn add-cost-button" onclick="AddCosts()">
+            Add costs
+        </div>
+    </div>
+
+    <template id="tmpl_input_add_cost">
+        <div class="filter-card-input-name add-cost-input-name">
+            Additional cost name
+        </div>
+        <input class="filter-card-input" placeholder="Custom additional cost"/>
+    </template>
+
+        <!-- Шаблоны кнопок внутри строки (Inner page) -->
+        <div id="edit-load-card" class="create-load-hidden">
+            <div class="purchase-title edit-title">
+                Edit a load
+            </div>
+            <div class="purchase-description">
+                Allocate your purchases into a load
+            </div>
+            <div class="input-purchase-name">
+                Quantity (Tons)
+            </div>
+            <input class="purchase-input" placeholder=""/>
+            <div class="input-purchase-name">
+                Wagon Number
+            </div>
+            <input class="purchase-input" placeholder=""/>
+            <div class="input-purchase-name">
+                Shipment Date
+            </div>
+            <input type="date" class="purchase-input" placeholder=""/>
+            <div class="create-load-available">
+                Available to allocate: 210 t
+            </div>
+            <div class="purchase-cancel-btn" onclick="cancelEditLoad()">
+                Cancel
+            </div>
+            <div class="purchase-continue-btn" onclick="makeEditLoad()">
+                Edit
+            </div>
+        </div>
+
     <!-- Шаблон для подтвержения удаления строки -->
     <div class="sure-logout-close" id="deleteRow">
         <div class="title-sure-delete">
@@ -471,7 +590,7 @@
             Cancel
         </div>
         <div class="yes-logout-btn" onclick="deleteSelectRowInLoad()">
-                Delete
+            Delete
         </div>
     </div>
 
@@ -518,7 +637,7 @@
             Change Status
         </div>
         <div class="close-notifications" onclick="closeNotifications()">
-            &#10006;
+            <img src="img/close.svg"/>
         </div>
         <div id="notifications-card-container">
             <div id="notifications-card1" class="notifications-card">
@@ -526,7 +645,7 @@
                     Payment datereminder
                 </div>
                 <div class="delete-notification" onclick="deleteNotification('notifications-card1')">
-                    &#10006;
+                    <img src="img/close.svg"/>
                 </div>
                 <div class="notifications-card-description">
                     Payment datereminder
@@ -543,7 +662,7 @@
                     Payment datereminder
                 </div>
                 <div class="delete-notification" onclick="deleteNotification('notifications-card2')">
-                    &#10006;
+                    <img src="img/close.svg"/>
                 </div>
                 <div class="notifications-card-description">
                     Payment datereminder
@@ -560,7 +679,7 @@
                     Payment datereminder
                 </div>
                 <div class="delete-notification" onclick="deleteNotification('notifications-card3')">
-                    &#10006;
+                    <img src="img/close.svg"/>
                 </div>
                 <div class="notifications-card-description">
                     Payment datereminder
@@ -587,7 +706,7 @@
             <div class="input-purchase-name">
                 PI#
             </div>
-            <input id="PI#" class="purchase-input" placeholder="Enter PI#"/>
+            <input class="purchase-input" placeholder="Enter PI#"/>
             <div class="input-purchase-name">
                 Product
             </div>
@@ -604,9 +723,6 @@
                 Price per Ton
             </div>
             <input class="purchase-input" placeholder="Enter price per Ton"/>
-        </div>
-        <div class="purchase-create-btn" onclick="deletePurchaseInputValue()">
-            Skip and create
         </div>
         <div class="purchase-cancel-btn" onclick="cancelPuchase()">
             Cancel
@@ -645,9 +761,6 @@
             </div>
             <input class="purchase-input" placeholder="Enter expense value"/>
         </div>
-        <div class="purchase-create-btn" onclick="deletePurchaseInputValue()">
-            Skip and create
-        </div>
         <div class="purchase-cancel-btn" onclick="backPuchaseStep2()">
             Back
         </div>
@@ -680,9 +793,6 @@
             Create
         </div>
     </div>
-
-
-
 
     <!-- Вся логика реализации создания sell -->
     <div class="hidden-sell" id="sell-window-1">
@@ -735,9 +845,6 @@
             <div class="total-price">
                 Total Price: --
             </div>
-        </div>
-        <div class="purchase-create-btn" onclick="deleteSellInputValue()">
-            Skip and create
         </div>
         <div class="purchase-cancel-btn" onclick="cancelSell()">
             Cancel
@@ -847,34 +954,69 @@
                 </div>
             </div>
             <div class="not-load-btns-search">
-                <img class="not-load-search-pic" src=""/>
-                <input class="not-load-search" placeholder="Search"/>
+                <div class="search-container">
+                    <img class="not-load-search-pic" src="img/loopa.svg"/>
+                    <input class="not-load-search" placeholder="Search"/>
+                </div>
                     <div class="not-load-btn" onclick="selectRowInLoad()">
-                        <img class="not-load-btn-pic" src=""/>
+                        <img class="not-load-btn-pic" src="img/select.svg"/>
                         Select
                     </div>
                     <div class="not-load-btn-select not-load-btn-select-cansel" onclick="cancelSelectRowInLoad()">
-                        <img class="not-load-btn-pic" src=""/>
                         Cancel
                     </div>
                     <div id="select-delete-btn" class="not-load-btn-select not-load-btn-select-delete" onclick="deleteSelectRowInLoadBanner()">
-                        <img class="not-load-btn-pic" src=""/>
+                        <img class="not-load-btn-pic" src="img/delete.svg"/>
                         Delete
                     </div>
                     <div id="select-export-btn" class="not-load-btn-select not-load-btn-select-export" onclick="selectRowInLoad()">
-                        <img class="not-load-btn-pic" src=""/>
+                        <img class="not-load-btn-pic" src="img/export.svg"/>
                         Export
                     </div>
                     <div class="not-load-btn" onclick="filterRowInLoad()">
-                        <img class="not-load-btn-pic" src=""/>
+                        <img class="not-load-btn-pic" src="img/filter.svg"/>
                         Filter by
                     </div>
-                    <div class="not-load-btn">
-                        <img class="not-load-btn-pic" src=""/>
+                    <div class="not-load-btn" onclick="sortRowInLoad()">
+                        <img class="not-load-btn-pic" src="img/sort.svg"/>
                         Sort by
+                        <div id="sort-by-options" class="hidden-sell">
+                            <div class="sort-option">
+                                <input type="radio"/>
+                                Latest first
+                            </div>
+                            <div class="sort-option">
+                                <input type="radio"/>
+                                Oldest first
+                            </div>
+                            <div class="sort-option">
+                                <input type="radio"/>
+                                Highest price per tone first
+                            </div>
+                            <div class="sort-option">
+                                <input type="radio"/>
+                                Lowest price per tone first
+                            </div>
+                            <div class="sort-option">
+                                <input type="radio"/>
+                                Highest total price first
+                            </div>
+                            <div class="sort-option">
+                                <input type="radio"/>
+                                Lowest total price first
+                            </div>
+                            <div class="sort-option">
+                                <input type="radio"/>
+                                Highest quantity first
+                            </div>
+                            <div class="sort-option">
+                                <input type="radio"/>
+                                Lowest quantity first
+                            </div>
+                        </div>
                     </div>
                     <div class="not-load-btn">
-                        <img class="not-load-btn-pic" src=""/>
+                        <img class="not-load-btn-pic" src="img/export.svg"/>
                         Export
                     </div>
             </div>
@@ -927,7 +1069,7 @@
                         $ 5 000
                     </div>
                 </div>
-                <div id="row-check-box2" class="not-load-row-date">
+                <div id="row-check-box2" class="not-load-row-date" onclick="innerPagePurchase(2)">
                     <input class="load-select-input-check" type="checkbox" onclick="toggleCheckBoxInput()">
                     <div class="not-load-row-first-data">
                         0123452
@@ -951,7 +1093,7 @@
                         $ 5 000
                     </div>
                 </div>
-                <div id="row-check-box3" class="not-load-row-date">
+                <div id="row-check-box3" class="not-load-row-date" onclick="innerPagePurchase(3)">
                     <input class="load-select-input-check" type="checkbox" onclick="toggleCheckBoxInput()">
                     <div class="not-load-row-first-data">
                         0123453
@@ -1026,36 +1168,63 @@
                 </div>
             </div>
             <div class="not-load-btns-search">
-                <img class="not-load-search-pic" src=""/>
-                <input class="not-load-search" placeholder="Search"/>
-                    <div class="not-load-btn" onclick="selectRowInLoad()">
-                        <img class="not-load-btn-pic" src=""/>
-                        Select
+                <div class="search-container">
+                    <img class="not-load-search-pic" src="img/loopa.svg"/>
+                    <input class="not-load-search" placeholder="Search"/>
+                </div>
+                <div class="not-load-btn" onclick="selectRowInLoad()">
+                    <img class="not-load-btn-pic" src="img/select.svg"/>
+                    Select
+                </div>
+                <div class="not-load-btn-select not-load-btn-select-cansel" onclick="cancelSelectRowInLoad()">
+                    Cancel
+                </div>
+                <div id="select-delete-btn" class="not-load-btn-select not-load-btn-select-delete" onclick="deleteSelectRowInLoadBanner()">
+                    <img class="not-load-btn-pic" src="img/delete.svg"/>
+                    Delete
+                </div>
+                <div id="select-export-btn" class="not-load-btn-select not-load-btn-select-export" onclick="selectRowInLoad()">
+                    <img class="not-load-btn-pic" src="img/export.svg"/>
+                    Export
+                </div>
+                <div class="not-load-btn" onclick="filterRowInLoad()">
+                    <img class="not-load-btn-pic" src="img/filter.svg"/>
+                    Filter by
+                </div>
+                <div class="not-load-btn" onclick="sortRowInLoad()">
+                    <img class="not-load-btn-pic" src="img/sort.svg"/>
+                    Sort by
+                    <div id="sort-by-options" class="hidden-sell">
+                        <div class="sort-option">
+                            Latest first
+                        </div>
+                        <div class="sort-option">
+                            Oldest first
+                        </div>
+                        <div class="sort-option">
+                            Highest price per tone first
+                        </div>
+                        <div class="sort-option">
+                            Lowest price per tone first
+                        </div>
+                        <div class="sort-option">
+                            Highest total price first
+                        </div>
+                        <div class="sort-option">
+                            Lowest total price first
+                        </div>
+                        <div class="sort-option">
+                            Highest quantity first
+                        </div>
+                        <div class="sort-option">
+                            Lowest quantity first
+                        </div>
                     </div>
-                    <div class="not-load-btn-select not-load-btn-select-cansel" onclick="cancelSelectRowInLoad()">
-                        <img class="not-load-btn-pic" src=""/>
-                        Cancel
-                    </div>
-                    <div id="select-delete-btn" class="not-load-btn-select not-load-btn-select-delete" onclick="deleteSelectRowInLoadBanner()">
-                        <img class="not-load-btn-pic" src=""/>
-                        Delete
-                    </div>
-                    <div id="select-export-btn" class="not-load-btn-select not-load-btn-select-export" onclick="selectRowInLoad()">
-                        <img class="not-load-btn-pic" src=""/>
-                        Export
-                    </div>
-                    <div class="not-load-btn" onclick="filterRowInLoad()">
-                        <img class="not-load-btn-pic" src=""/>
-                        Filter by
-                    </div>
-                    <div class="not-load-btn">
-                        <img class="not-load-btn-pic" src=""/>
-                        Sort by
-                    </div>
-                    <div class="not-load-btn">
-                        <img class="not-load-btn-pic" src=""/>
-                        Export
-                    </div>
+                </div>
+                <div class="not-load-btn">
+                    <img class="not-load-btn-pic" src="img/export.svg"/>
+                    Export
+                </div>
             </div>
             <div class="not-load-table">
                 <div class="not-load-row-names">
@@ -1161,7 +1330,7 @@
         <template id="tmpl_innerPagePurchase">
             <div class="innerPagePurchase">
                 <div class="inner-page-purchase-info">
-                    <div class="inner-page-purchase-info-name">${rowName}</div>
+                    <div id="inner-page-purchase-info-name">${rowName}</div>
                     <div class="inner-page-purchase-info-block">
                         <div class="inner-page-purchase-info-block-name">
                             PI#
@@ -1218,12 +1387,14 @@
                             ${rowContent}
                         </div>
                     </div>
-                    <div class="inner-page-purchase-btn-info">
-                        <img src=""/>
-                        Edit purchase info
-                    </div>
-                    <div class="inner-page-purchase-btn-delete">
-                        <img class="inner-page-purchase-btn-delete-pic" src=""/>
+                    <div class="footer-btns">
+                        <div class="inner-page-purchase-btn-info" onclick="EditPurchaseBanner()">
+                            <img src="img/edit.svg"/>
+                            <div>Edit purchase info</div>
+                        </div>
+                        <div class="inner-page-purchase-btn-delete" onclick="deletePurchaseBanner()">
+                            <img class="inner-page-purchase-btn-delete-pic" src="img/delete.svg"/>
+                        </div>
                     </div>
                 </div>
                 <div class="inner-page-purchase-content">
@@ -1255,84 +1426,79 @@
                                 Load#
                             </div>
                             <div class="not-load-row-name">
-                                PI#
-                            </div>
-                            <div class="not-load-row-name">
-                                Product Name
-                            </div>
-                            <div class="not-load-row-name">
-                                Manufacturer
-                            </div>
-                            <div class="not-load-row-name">
                                 Quantity (Tons)
                             </div>
                             <div class="not-load-row-name">
-                                Price per Ton
+                                Wagon Number
                             </div>
                             <div class="not-load-row-name">
-                                Total Price
+                                Shipment Date
+                            </div>
+                            <div class="not-load-row-name">
+                                Transportation Loss
+                            </div>
+                            <div class="not-load-row-name">
+                                Status
                             </div>
                         </div>
-                        <div id="row-purchase-check-box1" class="not-load-row-date">
+                        <div id="inner-row-purchase-check-box1" class="not-load-row-date-inner">
                             <input class="load-select-input-check" type="checkbox"/>
                             <div class="not-load-row-first-data">
                                 0123451
                             </div>
                             <div class="not-load-row-data">
-                                0104828
+                                70 t
                             </div>
                             <div class="not-load-row-data">
-                                PE0209
+                                3242424
                             </div>
                             <div class="not-load-row-data">
-                                20086
+                                -
                             </div>
                             <div class="not-load-row-data">
-                                120 t
+                                -
                             </div>
-                            <div class="not-load-row-data">
-                                $ 135.00
+                            <div class="not-load-row-btn">
+                                <div class="not-load-row-btn-status">Not Loaded</div>
+                                <img class="menu-item-more" src="img/more.svg" onclick="showMoreInrowBtn()"/>
+                                <div id="show-more-in-row-btns" class="show-more-in-row-btns-hidden">
+                                     <div class="edit-load">
+                                       <img src=""/>
+                                        <div class="edit-load-text" onclick="editLoad()">
+                                            Edit the load
+                                        </div>
+                                    </div>
+                                    <div class="delete-load">
+                                        <img src=""/>
+                                        <div class="edit-load-text" onclick="deleteLoad()">
+                                            Delete the load
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="not-load-row-data">
-                                $ 167 545.24
+                            <!-- <div class="on-the-way-row-btn">
+                                <div class="not-load-row-btn-status">On the way</div>
+                                <img src="img/more.png"/>
                             </div>
-                        </div>
-                        <div id="row-purchase-check-box1" class="not-load-row-date">
-                            <input class="load-select-input-check" type="checkbox"/>
-                            <div class="not-load-row-first-data">
-                                0123451
-                            </div>
-                            <div class="not-load-row-data">
-                                0104828
-                            </div>
-                            <div class="not-load-row-data">
-                                PE0209
-                            </div>
-                            <div class="not-load-row-data">
-                                20086
-                            </div>
-                            <div class="not-load-row-data">
-                                120 t
-                            </div>
-                            <div class="not-load-row-data">
-                                $ 135.00
-                            </div>
-                            <div class="not-load-row-data">
-                                $ 167 545.24
-                            </div>
+                            <div class="warehouse-row-btn">
+                                <div class="not-load-row-btn-status">Warehouse</div>
+                                <img src="img/more.png"/>
+                            </div> -->
                         </div>
                         <div class="inner-page-purchase-footer">
                             <div class="inner-page-purchase-footer-content">
                                 Quantity delivered: 50 t
                             </div>
-                            <div class="inner-page-purchase-footer-footer-btn">
+                            <div class="inner-page-purchase-footer-footer-btn" onclick="innerPageCreateLoad()">
                                 Create load
                             </div>
                         </div>
                     </div>
                 </div>
-        </div>
         </template>
+
+
+
 
         <!-- Шаблоны окон, когда мы находимся внутри конкретной строчки  -->
         <template id="tmpl_inner_page_purchase_table_content">
@@ -1342,22 +1508,19 @@
                     Load#
                 </div>
                 <div class="not-load-row-name">
-                    PI#
-                </div>
-                <div class="not-load-row-name">
-                    Product Name
-                </div>
-                <div class="not-load-row-name">
-                    Manufacturer
-                </div>
-                <div class="not-load-row-name">
                     Quantity (Tons)
                 </div>
                 <div class="not-load-row-name">
-                    Price per Ton
+                    Wagon Number
                 </div>
                 <div class="not-load-row-name">
-                    Total Price
+                    Shipment Date
+                </div>
+                <div class="not-load-row-name">
+                    Transportation Loss
+                </div>
+                <div class="not-load-row-name">
+                    Status
                 </div>
             </div>
             <div id="row-purchase-check-box1" class="not-load-row-date">
@@ -1366,22 +1529,33 @@
                     0123451
                 </div>
                 <div class="not-load-row-data">
-                    0104828
+                    70 t
                 </div>
                 <div class="not-load-row-data">
-                    PE0209
+                    -
                 </div>
                 <div class="not-load-row-data">
-                    20086
+                    -
                 </div>
-                <div class="not-load-row-data">
-                    120 t
+                <div class="not-load-row-btn">
+                    <div class="not-load-row-btn-status">Not Loaded</div>
+                    <img class="menu-item-more" src="img/more.svg"/>
                 </div>
-                <div class="not-load-row-data">
-                    $ 135.00
+                <!-- <div class="on-the-way-row-btn">
+                    <div class="not-load-row-btn-status">On the way</div>
+                    <img src="img/more.png"/>
                 </div>
-                <div class="not-load-row-data">
-                    $ 167 545.24
+                <div class="warehouse-row-btn">
+                    <div class="not-load-row-btn-status">Warehouse</div>
+                    <img src="img/more.png"/>
+                </div> -->
+            </div>
+            <div class="inner-page-purchase-footer">
+                <div class="inner-page-purchase-footer-content">
+                    Quantity delivered: 50 t
+                </div>
+                <div class="inner-page-purchase-footer-footer-btn" onclick="innerPageCreateLoad()">
+                    Create load
                 </div>
             </div>
         </template>
@@ -1438,14 +1612,207 @@
                 <div class="inner-page-purchase-footer-footer-btn delete-cost-btn">
                     Delete Cost
                 </div>
-                <div class="inner-page-purchase-footer-footer-btn add-cost-btn">
+                <div class="inner-page-purchase-footer-footer-btn add-cost-btn" onclick="addCostCard()">
                     Add Cost
                 </div>
             </div>
         </template>
 
         <template id="tmpl_inner_page_attached_docs">
+            <div class="inner-page-attached-file">
+                <img class="inner-page-attached-file-pic" src=""/>
+                <div class="inner-page-attached-file-info">
+                    <div class="inner-page-attached-file-name">
+                        File Name
+                    </div>
+                    <div class="inner-page-attached-file-date">
+                        Nov 12, 2022 • 10:38 AM
+                    </div>
+                </div>
+                <img class="inner-page-attached-file-more" src="img/filemore.svg"/>
+            </div>
+        </template>
 
+
+        <template id="tmpl_portfolio">
+            <div class="innerPagePurchase">
+                <div class="inner-page-purchase-info">
+                    <div id="person-info">
+                        <img class="portfolio-ava" src="img/Avatar.png"/>
+                        <div class="name-stage">
+                            <div class="person-name">
+                                Azamat Kukymboyev
+                            </div>
+                            <div class="person-description">
+                                Sales Manager
+                            </div>
+                        </div>
+                    </div>
+                    <div class="inner-page-purchase-info-block">
+                        <div class="inner-page-purchase-info-block-name">
+                            Sales Amount
+                        </div>
+                        <div class="inner-page-purchase-info-block-content">
+                            $ 167 545.24
+                        </div>
+                    </div>
+                    <div class="inner-page-purchase-info-block">
+                        <div class="inner-page-purchase-info-block-name">
+                            Customers Amount
+                        </div>
+                        <div class="inner-page-purchase-info-block-content">
+                            7
+                        </div>
+                    </div>
+                    <div class="inner-page-purchase-info-block">
+                        <div class="inner-page-purchase-info-block-name">
+                            Customers Demand
+                        </div>
+                        <div class="inner-page-purchase-info-block-content">
+                            840 t
+                        </div>
+                    </div>
+                    <div class="inner-page-purchase-info-block">
+                        <div class="inner-page-purchase-info-block-name">
+                            Actual Sales
+                        </div>
+                        <div class="inner-page-purchase-info-block-content">
+                            310 t
+                        </div>
+                    </div>
+                    <div class="inner-page-purchase-info-block">
+                        <div class="inner-page-purchase-info-block-name">
+                            Performance
+                        </div>
+                        <div class="inner-page-purchase-info-block-content paid-color">
+                            39.6 %
+                        </div>
+                    </div>
+                    <div class="inner-page-purchase-info-block">
+                        <div class="inner-page-purchase-info-block-name">
+                            Days Worked
+                        </div>
+                        <div class="inner-page-purchase-info-block-content">
+                            16 d
+                        </div>
+                    </div>
+                    <div class="inner-page-purchase-info-block">
+                        <div class="inner-page-purchase-info-block-name">
+                            Hours Worked
+                        </div>
+                        <div class="inner-page-purchase-info-block-content">
+                            144 h
+                        </div>
+                    </div>
+                    <div class="inner-page-purchase-info-block">
+                        <div class="inner-page-purchase-info-block-name">
+                            Days Off
+                        </div>
+                        <div class="inner-page-purchase-info-block-content">
+                            3 d
+                        </div>
+                    </div>
+                    <div class="inner-page-purchase-info-block">
+                        <div class="inner-page-purchase-info-block-name">
+                            Status
+                        </div>
+                        <div class="inner-page-purchase-info-block-content paid-color">
+                            Off
+                        </div>
+                    </div>
+                    <div class="inner-page-purchase-info-block">
+                        <div class="inner-page-purchase-info-block-name">
+                            Phone Number
+                        </div>
+                        <div class="inner-page-purchase-info-block-content">
+                            +90 232 990 99 88
+                        </div>
+                    </div>
+                    <div class="inner-page-purchase-info-block">
+                        <div class="inner-page-purchase-info-block-name">
+                            E-mail
+                        </div>
+                        <div class="inner-page-purchase-info-block-content">
+                            john@skyline.com
+                        </div>
+                    </div>
+                    <div class="inner-page-purchase-btn-info request-info-edit" onclick="">
+                        <img src=""/>
+                        Request info edit
+                    </div>
+                </div>
+                <div class="inner-page-purchase-content">
+                    <div class="inner-page-purchase-menu">
+                        <div class="inner-page-purchase-pages-menu">
+                            <div class="inner-another-page-purchase inner-another-page-purchase-load" onclick="innerPagePurchaseMenu()">
+                                Active Deals
+                            </div>
+                            <div class="inner-another-page-purchase inner-another-page-purchase-costs" onclick="innerPageAdditionalCosts()">
+                                Worked Hours
+                            </div>
+                            <div class="inner-another-page-purchase inner-another-page-purchase-costs" onclick="innerPageAdditionalCosts()">
+                                Customers
+                            </div>
+                            <div class="inner-another-page-purchase inner-another-page-purchase-doc" onclick="innerPageAttachedDocs()">
+                                Attached Documents
+                            </div>
+                        </div>
+                        <!-- <div class="inner-page-purchase-menu-btns">
+                            <div class="inner-another-page-purchase-btn-back" onclick="innerPagePurchaseBack()">
+                                Back
+                            </div>
+                            <div class="inner-another-page-purchase-btn-save" onclick="innerPagePurchaseSaveandBack()">
+                                Save and back
+                            </div>
+                        </div> -->
+                    </div>
+                    <div id="inner-page-purchase-info-container">
+                        <div class="not-load-row-names">
+                            <input class="load-select-input-check" type="checkbox"/>
+                            <div class="not-load-row-name">
+                                Order Number
+                            </div>
+                            <div class="not-load-row-name">
+                                Product
+                            </div>
+                            <div class="not-load-row-name">
+                                Quantity (Tons)
+                            </div>
+                            <div class="not-load-row-name">
+                                Price per Ton
+                            </div>
+                            <div class="not-load-row-name">
+                                Total Price
+                            </div>
+                            <div class="not-load-row-name">
+                                Payment Type
+                            </div>
+                        </div>
+                        <div id="inner-row-purchase-check-box1" class="not-load-row-date-inner">
+                            <input class="load-select-input-check" type="checkbox"/>
+                            <div class="not-load-row-first-data">
+                                0123451
+                            </div>
+                            <div class="not-load-row-data">
+                                70 t
+                            </div>
+                            <div class="not-load-row-data">
+                                3242424
+                            </div>
+                            <div class="not-load-row-data">
+                                -
+                            </div>
+                            <div class="not-load-row-data">
+                                -
+                            </div>
+                        </div>
+                        <div class="inner-page-purchase-footer">
+                            <div class="inner-page-purchase-footer-content">
+                                Quantity delivered: 50 t
+                            </div>
+                        </div>
+                    </div>
+                </div>
         </template>
 </body>
 </html>

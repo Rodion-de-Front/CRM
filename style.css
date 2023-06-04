@@ -41,14 +41,16 @@ body::-webkit-scrollbar-thumb {
     z-index: 10;
 }
 
-.main-opacity {
+.main-opacity::before {
+    content: "";
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(25, 27, 46, 0.5); /* Здесь 0.5 определяет прозрачность */
-    z-index: 50; /* Устанавливаем достаточно высокий z-index, чтобы элемент был выше остальных */
+    background-color: rgba(25, 27, 46, 0.5); /* Здесь можно настроить уровень прозрачности */
+    z-index: 49;
+    pointer-events: none;
 }
 
 .form {
@@ -161,14 +163,6 @@ body::-webkit-scrollbar-thumb {
     background: rgba(197, 196, 240, 1);
 }
 
-/* .chart-text {
-
-}
-
-.chart {
-
-} */
-
 .all-chart {
     height: 352px;
     width: 642px;
@@ -183,6 +177,11 @@ body::-webkit-scrollbar-thumb {
     height: 372px;
     display: flex;
     align-items: center;
+}
+
+.chart {
+    width: 1308px;
+    height: 352px;
 }
 
 .chart-title-purchase-sales {
@@ -360,12 +359,11 @@ body::-webkit-scrollbar-thumb {
     transition: 1s;
     position: fixed;
     width: 1540px;
+    background-color: rgba(255, 255, 255, 1);
 }
 
 .lines {
     cursor: pointer;
-    width: 25px;
-    height: 25px;
     margin-left: 53px;
 }
 
@@ -414,12 +412,16 @@ body::-webkit-scrollbar-thumb {
     height: 48px;
     text-align: center;
     box-sizing: border-box;
-    padding: 13px 0 13px 0;
+    padding: 12px 0 12px 0;
     color: rgba(89, 86, 174, 1);
     background-color: rgba(241, 240, 251, 0.5);
     border: 1px solid rgba(89, 86, 174, 1);
     border-radius: 8px;
     right: 108px;
+}
+
+.btn-msg img {
+    color: rgba(89, 86, 174, 1);
 }
 
 .btn-ava {
@@ -703,20 +705,6 @@ body::-webkit-scrollbar-thumb {
     margin-bottom: 20px;
 }
 
-.purchase-create-btn {
-    height: 48px;
-    width: 320px;
-    box-sizing: border-box;
-    border-radius: 8px;
-    padding: 13px 20px 13px 20px;
-    background: linear-gradient(0deg, #F1F0FB, #F1F0FB),
-    linear-gradient(0deg, #A9A7E8, #A9A7E8);
-    border: 1px solid rgba(169, 167, 232, 1);
-    text-align: center;
-    margin-bottom: 12px;
-    cursor: pointer;
-}
-
 .purchase-cancel-btn {
     height: 48px;
     width: 154px;
@@ -807,12 +795,13 @@ body::-webkit-scrollbar-thumb {
 .profile-more-active {
     display: block;
     width: 200px;
-    height: 156px;
+    height: 104px;
     position: absolute;
     top: 88px;
     right: 48px;
     border-radius: 8px;
     border: 1px solid rgba(89, 86, 174, 1);
+    background-color: rgba(255, 255, 255, 1);
 }
 
 .profile-item {
@@ -992,7 +981,7 @@ body::-webkit-scrollbar-thumb {
     border: 1px solid rgba(232, 232, 234, 1);
     text-align: center;
     cursor: pointer;
-    margin-left: 239px;
+    margin-left: 220px;
 }
 
 #notifications-card-container {
@@ -1065,7 +1054,7 @@ body::-webkit-scrollbar-thumb {
 
 .notifications-card-btn {
     height: 40px;
-    width: 149px;
+    width: 151px;
     font-size: 16px;
     font-weight: 600;
     box-sizing: border-box;
@@ -1174,8 +1163,6 @@ body::-webkit-scrollbar-thumb {
 }
 
 .menu-item-more {
-    width: 16px;
-    height: 7px;
     display: inline-block;
 }
 
@@ -1282,6 +1269,12 @@ body::-webkit-scrollbar-thumb {
     display: flex;
 }
 
+.search-container {
+    position: relative;
+    display: inline-block;
+    margin-right: 400px;
+}
+
 .not-load-search {
     height: 48px;
     width: 320px;
@@ -1290,7 +1283,16 @@ body::-webkit-scrollbar-thumb {
     padding: 12px;
     background-color: rgba(251, 251, 254, 1);
     border: 1px solid rgba(232, 232, 234, 1);
-    margin-right: 400px;
+    padding-left: 40px;
+}
+
+.not-load-search-pic {
+    position: absolute;
+    top: 50%;
+    left: 10px; /* Расположение изображения справа */
+    transform: translateY(-50%);
+    height: 20px; /* Высота изображения */
+    width: 20px; /* Ширина изображения */
 }
 
 .not-load-btn {
@@ -1364,6 +1366,28 @@ body::-webkit-scrollbar-thumb {
     margin-right: 10px;
 }
 
+.sort-options {
+    position: absolute;
+    display: block;
+    top: 400px;
+    height: 400px;
+    width: 320px;
+    box-sizing: border-box;
+    background-color: rgba(255, 255, 255, 1);
+    border-radius: 8px;
+}
+
+.sort-option {
+    height: 50px;
+    width: 320px;
+    box-sizing: border-box;
+    padding: 14px 16px 14px 16px;
+    border-bottom: 1px solid rgba(163, 164, 171, 1);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22px;
+}
+
 .not-load-table {
     margin-top: 32px;
 }
@@ -1389,6 +1413,12 @@ body::-webkit-scrollbar-thumb {
     border-bottom: 2px solid rgba(232, 232, 234, 0.5);
     cursor: pointer;
     transition: 0.3s;
+}
+
+.not-load-row-date-inner {
+    box-sizing: border-box;
+    padding: 10px 0 10px 0;
+    border-bottom: 2px solid rgba(232, 232, 234, 0.5);
 }
 
 .not-load-row-date:hover {
@@ -1490,7 +1520,6 @@ body::-webkit-scrollbar-thumb {
     border: 1px solid rgba(232, 232, 234, 1);
     text-align: center;
     cursor: pointer;
-    margin-right: 12px;
     font-size: 16px;
     font-weight: 600;
     line-height: 22px;
@@ -1531,7 +1560,7 @@ body::-webkit-scrollbar-thumb {
     border-top: 3px solid rgba(232, 232, 234, 1);
 }
 
-.inner-page-purchase-info-name {
+#inner-page-purchase-info-name {
     height: 29px;
     width: 110px;
     font-size: 24px;
@@ -1569,6 +1598,12 @@ body::-webkit-scrollbar-thumb {
     color: rgba(240, 164, 88, 1);
 }
 
+.footer-btns {
+    display: flex;
+    align-items: center;
+    margin-top: 42px;
+}
+
 .inner-page-purchase-btn-info {
     text-align: center;
     display: inline-block;
@@ -1583,8 +1618,17 @@ body::-webkit-scrollbar-thumb {
     font-weight: 600;
     line-height: 22px;
     color: rgba(89, 86, 174, 1);
-    margin-top: 360px;
     cursor: pointer;
+    margin-right: 8px;
+}
+
+.inner-page-purchase-btn-info img {
+    display: inline-block;
+}
+
+.inner-page-purchase-btn-info div {
+    display: inline-block;
+    vertical-align: top;
 }
 
 .inner-page-purchase-btn-delete {
@@ -1597,7 +1641,6 @@ body::-webkit-scrollbar-thumb {
     padding: 12px;
     background-color: rgba(255, 90, 90, 1);
     border: 1px solid rgba(204, 72, 72, 1);
-    margin-top: 360px;
     cursor: pointer;
 }
 
@@ -1632,7 +1675,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .inner-another-page-purchase-load {
-    width: 46px;
+    width: 94px;
 }
 
 .inner-another-page-purchase-costs {
@@ -1763,4 +1806,322 @@ body::-webkit-scrollbar-thumb {
     box-sizing: border-box;
     border-radius: 8px;
     padding: 13px 20px 13px 20px;
+}
+
+.inner-page-attached-file {
+    display: flex;
+    align-items: center;
+    height: 72px;
+    width: 320px;
+    box-sizing: border-box;
+    border-radius: 8px;
+    padding: 12px;
+    background-color: rgba(248, 248, 253, 1);
+    border: 1px solid rgba(232, 232, 234, 1);
+    margin: 0 20px 20px 0;
+}
+
+.inner-page-attached-file-pic {
+    height: 48px;
+    width: 48px;
+    margin-right: 12px;
+}
+
+.inner-page-attached-file-name {
+    height: 22px;
+    width: 204px;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 22px;
+    color: rgba(25, 27, 46, 1);
+    margin-bottom: 2px;
+}
+
+.inner-page-attached-file-date {
+    height: 20px;
+    width: 204px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    color: rgba(163, 164, 171, 1);
+}
+
+.create-load-hidden {
+    display: none;
+}
+
+.create-load-active {
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+    z-index: 600;
+    height: 395px;
+    width: 416px;
+    box-sizing: border-box;
+    border-radius: 8px;
+    padding: 40px 48px 40px 48px;
+    background-color: rgba(255, 255, 255, 1);
+}
+
+.create-load-title {
+    height: 29px;
+    width: 320px;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 29px;
+    color: rgba(25, 27, 46, 1);
+    text-align: center;
+    margin-bottom: 12px;
+}
+
+.create-load-description {
+    height: 20px;
+    width: 320px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    text-align: center;
+    color: rgba(163, 164, 171, 1);
+    margin-bottom: 32px;
+}
+
+.crete-load-input {
+    margin-bottom: 20px;
+}
+
+.create-load-available {
+    height: 22px;
+    width: 320px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 22px;
+    color: rgba(117, 118, 130, 1);
+    margin-bottom: 56px;
+}
+
+.not-load-row-btn {
+    display: inline-block;
+    height: 40px;
+    width: 160px;
+    box-sizing: border-box;
+    border-radius: 8px;
+    padding: 8px 12px 8px 12px;
+    background-color: rgba(226, 226, 247, 1);
+    border: 1px solid rgba(169, 167, 232, 1);
+    color: rgba(25, 27, 46, 1);
+}
+
+.not-load-row-btn-status {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.show-more-in-row-btns-hidden {
+    display: none;
+}
+
+.show-more-in-row-btns-active {
+    display: block;
+    position: absolute;
+    width: 200px;
+    background-color: rgba(255, 255, 255, 1);
+    box-sizing: border-box;
+    border: 1px solid #8C89E1;
+    border-radius: 8px;
+}
+
+.edit-load {
+    width: 200px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22px;
+    color: rgba(25, 27, 46, 1);
+    box-sizing: border-box;
+    padding: 0 20px 20px 20px;
+    border-bottom: 1px solid rgba(117, 118, 130, 1);
+    cursor: pointer;
+}
+
+.delete-load {
+    width: 200px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22px;
+    color: rgba(255, 90, 90, 1);
+    box-sizing: border-box;
+    padding: 0 20px 20px 20px;
+    cursor: pointer;
+}
+
+.edit-load-active {
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+    height: 587px;
+    width: 416px;
+    box-sizing: border-box;
+    border-radius: 8px;
+    padding: 40px 48px 40px 48px;
+    background-color: rgba(255, 255, 255, 1);
+    z-index: 50;
+}
+
+.edit-title {
+    width: 320px;
+    margin: 0;
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.edit-purchase-active {
+    display: block;
+    position: absolute;
+    z-index: 100;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+    height: 708px;
+    width: 416px;
+    box-sizing: border-box;
+    border-radius: 8px;
+    padding: 40px 48px 40px 48px;
+    background-color: rgba(255, 255, 255, 1);
+}
+
+.edit-purchase-btn {
+    margin-top: 59px;
+}
+
+.sure-delete-purchase {
+    display: block;
+    position: absolute;
+    z-index: 100;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+    width: 416px;
+    height: 241px;
+    box-sizing: border-box;
+    padding: 40px 48px 40px 48px;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 1);
+}
+
+.title-sure-delete-purchase {
+    margin-bottom: 12px;
+    height: 29px;
+}
+
+#description-sure-delete {
+    margin-bottom: 32px;
+    text-align: center;
+}
+
+.add-cost-card {
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+    height: 485px;
+    width: 416px;
+    box-sizing: border-box;
+    border-radius: 8px;
+    padding: 40px 48px 40px 48px;
+    background-color: rgba(255, 255, 255, 1);
+    z-index: 50;
+    overflow: auto;
+    overflow-x: hidden;
+}
+
+.add-cost-card::-webkit-scrollbar {
+    width: 5px;
+}
+
+.add-cost-card::-webkit-scrollbar-track {
+    background-color: rgba(241, 240, 251, 1);
+    border-radius: 8px;
+}
+
+.add-cost-card::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    background: rgba(197, 196, 240, 1);
+}
+
+.add-cost-input-name {
+    height: 20px;
+    width: 138px;
+}
+
+.add-more-costs-btn {
+    height: 48px;
+    width: 320px;
+    box-sizing: border-box;
+    border-radius: 8px;
+    padding: 13px 20px 13px 20px;
+    background-color: rgba(248, 248, 253, 1);
+    border: 1px solid rgba(232, 232, 234, 1);
+    text-align: center;
+    cursor: pointer;
+    margin-bottom: 19px;
+}
+
+.add-cost-button {
+    background-color: rgba(111, 108, 217, 1);
+    border: 1px solid rgba(89, 86, 174, 1);
+    color: rgba(255, 255, 255, 1);
+}
+
+#person-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 60px;
+}
+
+.portfolio-ava {
+    margin-right: 16px;
+    height: 64px;
+    width: 64px;
+    border-radius: 50%;
+}
+
+.name-stage {
+    height: 64px;
+}
+
+.person-name {
+    height: 29px;
+    width: 243px;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 29px;
+    color: rgba(25, 27, 46, 1);
+}
+
+.person-description {
+    height: 20px;
+    width: 96px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    color: rgba(163, 164, 171, 1);
+}
+
+.request-info-edit {
+    margin-top: 130px;
 }
